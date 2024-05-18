@@ -54,7 +54,7 @@ export const CreateBlog = () => {
         // the actual editor 
         <>
         <Appbar />
-          <div className="text-3xl flex justify-center h-10 font-bold m-3">
+          <div className="text-3xl flex justify-center h-10 font-bold mb-10">
             Create Blog
           </div>
           <div className="mx-5 flex justify-between flex-col">

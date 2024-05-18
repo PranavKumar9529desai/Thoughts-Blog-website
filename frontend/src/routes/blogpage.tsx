@@ -15,9 +15,11 @@ export const BlogPage = () => {
     <>
       {isLoading ? (
         <>
-          <div className="mb-8 sticky">
+          <div className="">
             <Appbar />
-          </div>  
+          </div>
+          {/* Placeholder for the Appbar */}
+          <div style={{ height: "64px" }}></div>
           <div className="flex justify-center items-center h-screen ">
             <ScaleLoader color="#36d7b7" height={50} width={5} />
           </div>
@@ -25,10 +27,12 @@ export const BlogPage = () => {
       ) : (
         blog && (
           <>
-            <div className="mb-8 sticky">
+            <div className="">
               <Appbar />
             </div>
-            <div className="mt-3 ml-10">
+            {/* Placeholder for the Appbar */}
+            <div style={{ height: "64px" }}></div>
+            <div className="mt-10  ml-10">
               <SingleBlog blog={blog} />
             </div>
           </>
@@ -37,5 +41,3 @@ export const BlogPage = () => {
     </>
   );
 };
-
-

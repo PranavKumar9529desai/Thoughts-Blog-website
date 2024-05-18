@@ -13,8 +13,8 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
           <div className="text-slate-400  my-3">
             {"Posted on 16 May 2024" || blog.published}
           </div>
-          <div className="text-lg leading-10 font-ubuntu mt-5">
-            {blog.content}
+          {/*  TODO note this */}
+          <div className="text-lg leading-10 font-ubuntu mt-5" dangerouslySetInnerHTML={{__html :blog.content}}>
           </div>
         </div>
         <div className="col-span-4 mx-auto hidden lg:block">

@@ -72,7 +72,6 @@ export function AvatarDropDown({
       {" "}
       <button
         id="dropdownHoverButton"
-       
         className={`z-10 inline-flex items-center justify-center font-anton ${
           size === "small" ? "w-10 h-10" : "w-14 h-14"
         }   bg-slate-100 rounded-full dark:bg-gray-600`}
@@ -83,18 +82,17 @@ export function AvatarDropDown({
           {initials}
         </span> */}
 
-        <img
-          src={profileImage}
-          alt="Edit blog"
-          className="w-8 h-8  "
-        />
+        <img src={profileImage} alt="Edit blog" className="w-8 h-8  " />
       </button>
       {isOpen && (
         <div
           id="dropdownHover"
           className="absolute z-20 right-[-45px] rounded-lg  bg-slate-600 dark:bg-gray-700 top-full  text-center border font-mono mt-2 "
         >
-          <div className="z-20 px-4 py-3 w-full border hover:text-white" onClick={()=>HandleLogout()}>
+          <div
+            className="z-20 px-4 py-3 w-full border hover:text-white"
+            onClick={() => HandleLogout()}
+          >
             Logout
           </div>
           <div className="px-4 py-3 w-full border hover:text-white">
@@ -106,9 +104,8 @@ export function AvatarDropDown({
   );
 }
 
-
-function HandleLogout(){
+function HandleLogout() {
   console.log("logout clicked");
-  // localStorage.removeItem("token");
+  localStorage.removeItem("token");
   window.location.assign("/signin");
 }
