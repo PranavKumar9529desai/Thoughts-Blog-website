@@ -11,6 +11,7 @@ export const BlogsCard = ({
   publishedDate,
   title,
   description,
+  
 }: BlogsProps) => {
   return (
     <>
@@ -23,7 +24,7 @@ export const BlogsCard = ({
             {AuthorName}
             {/* dot bwtween the avatra name  */}
             <div className="flex mx-1">&#x2022;</div>
-            <div className="text-slate-600 font-anton">{publishedDate}</div>
+            <div className="text-slate-600 ">{publishedDate}</div>
           </div>
         </div>
         <div className="">

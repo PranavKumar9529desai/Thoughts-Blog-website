@@ -9,6 +9,7 @@ export interface blog {
   title: string;
   content: string;
   published: false,
+  createdAt : string,
   author: {
     name: string;
   };

@@ -31,7 +31,10 @@ export function Blogs() {
                     AuthorName={
                       blog.author.name ? blog.author.name : "Anonymous"
                     }
-                    publishedDate="aaj ki tareek"
+                    publishedDate={new Date(blog.createdAt).toLocaleDateString(
+                      "en-GB",
+                      { day: "2-digit", month: "short", year: "numeric" }
+                    )}
                     title={blog.title}
                     description={blog.content}
                   />

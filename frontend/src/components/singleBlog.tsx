@@ -3,6 +3,9 @@ import { blog } from "../hooks/FetchBlogs";
 
 // TOOD make it rePonsive
 export const SingleBlog = ({ blog }: { blog: blog }) => {
+  
+  const date =new Date(blog.createdAt);
+  const createdAt = date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
   return (
     <>
       <div className="grid grid-cols-12 w-full ">
@@ -11,7 +14,8 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
             {blog.title}
           </div>
           <div className="text-slate-400  my-3">
-            {"Posted on 16 May 2024" || blog.published}
+            {`Posted on ${createdAt}`|| "16 May 2024"
+            }
           </div>
           {/*  TODO note this */}
           <div className="text-lg leading-10 font-ubuntu mt-5" dangerouslySetInnerHTML={{__html :blog.content}}>

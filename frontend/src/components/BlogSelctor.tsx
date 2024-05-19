@@ -1,12 +1,14 @@
 import { atom } from "recoil";
 
 interface blog {
-    id: string;
-    title: string;
-    content: string;
-    author: {
-      name: string;
-    };
+  id: string;
+  title: string;
+  content: string;
+  published: false,
+  createdAt : string,
+  author: {
+    name: string;
+  };
   }
   
   // Define your `atom`

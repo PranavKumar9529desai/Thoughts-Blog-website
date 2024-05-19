@@ -2,13 +2,6 @@ import axios from 'axios';
 import { selector , selectorFamily } from 'recoil'
 
 
-interface SingleBlogProps {
-  Title: string;
-  Description: string;
-  pusblishedate: string;
-  AuhtorName: string;
-  Authordescription: string;
-}
 
 export const blogSelector = selector({
   key : 'blogsFamily',

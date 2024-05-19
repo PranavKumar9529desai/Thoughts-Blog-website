@@ -40,3 +40,7 @@ clx let's you use the 2 or more classes and manipulate them dynamically.
 
 ### in Twailwind to px use [valuepx]
 ---> w-[720px]
+
+### prisma 
+updating the schema it means migrating so the command is 
+npx prisma migrate dev --name "schema info for "

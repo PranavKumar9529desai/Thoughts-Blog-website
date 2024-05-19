@@ -20,6 +20,7 @@
     "common_for_medium_blog_project": "^1.0.2",
     "highlight.js": "^11.9.0",
     "lucide-react": "^0.376.0",
+    "luxon": "^3.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-quill": "^2.0.0",
