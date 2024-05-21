@@ -1,6 +1,6 @@
 import { useState } from "react";
-import profileImage from "../../../assets/profileImage.png";
-
+import profileImage from "@assets/profileImage.png";
+import { coustomLogoutAlert, DescriptionModal } from "@components/customAlerts";
 export function Avatar({
   name,
   size,
@@ -8,14 +8,6 @@ export function Avatar({
   name: string;
   size: "small" | "big";
 }) {
-  console.log("name is from the avatar : ", name);
-  console.log(
-    name
-      .split(" ")
-      .map((word) => word[0])
-      .join("")
-      .toUpperCase()
-  );
   const initials =
     name == null
       ? "A"
@@ -44,23 +36,8 @@ export function Avatar({
   );
 }
 
-export function AvatarDropDown({
-  name,
-  size,
-}: {
-  name: string;
-  size: "small" | "big";
-}) {
+export function AvatarDropDown({ size }: { size: "small" | "big" }) {
   const [isOpen, setIsOpen] = useState(false);
-  const initials =
-    name == null
-      ? "A"
-      : name
-          .split(" ")
-          .map((word) => word[0])
-          .join("")
-          .toUpperCase();
-  console.log(isOpen);
   return (
     <div
       onClick={() => {
@@ -95,7 +72,10 @@ export function AvatarDropDown({
           >
             Logout
           </div>
-          <div className="px-4 py-3 w-full border hover:text-white">
+          <div
+            className="px-4 py-3 w-full border hover:text-white"
+            onClick={() => HandleDescription()}
+          >
             Description
           </div>
         </div>
@@ -106,6 +86,10 @@ export function AvatarDropDown({
 
 function HandleLogout() {
   console.log("logout clicked");
-  localStorage.removeItem("token");
-  window.location.assign("/signin");
+  coustomLogoutAlert();
+}
+
+function HandleDescription() {
+  console.log("description is clicked");
+  DescriptionModal();
 }

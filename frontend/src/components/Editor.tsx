@@ -93,7 +93,7 @@ function Editor({
           theme="snow"
           value={blogInput.content}
           onChange={(e) => setBlogInput({ ...blogInput, content: e })}
-          className="h-20 mt-2"
+          className="mt-2"
           placeholder="Write something awesome..."
           modules={modules}
           formats={formats}

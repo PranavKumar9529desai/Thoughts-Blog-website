@@ -15,7 +15,7 @@ export const BlogsCard = ({
 }: BlogsProps) => {
   return (
     <>
-      <div className="w-full  m-4 relative ">
+      <div className="w-full  m-3 relative ">
         <div className="flex items-center">
           <div className="flex text-s font-anton">
             <Avatar name={AuthorName} size="small" />
@@ -30,7 +30,7 @@ export const BlogsCard = ({
         <div className="">
           <div className="text-2xl font-bold my-2 font-montserrat">{title}</div>
           {/* TODO note this  */}
-          <div className="text-md leading-7 my-2 font-anton" dangerouslySetInnerHTML={{ __html: description.slice(0, 300) + ". . . . ." }} />
+          <div className="text-md leading-7 my-2 font-anton" dangerouslySetInnerHTML={{ __html: description.slice(0, 200) + ". . . . ." }} />
 
           <div className="text-slate-600 font-semibold font-anton">{`${Math.ceil(
             description.length / 100

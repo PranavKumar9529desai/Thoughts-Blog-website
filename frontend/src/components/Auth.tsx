@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
-import { signupInput } from "../../../common/src/index";
+import { signupInput } from "@common/src/index";
 import axios from "axios";
 import { BarLoader } from "react-spinners";
+import { coustomAlert } from "./customAlerts";
 
 // TODO can add @ means use allias to make import cleaner
 // TODO add customalerts in the signup and signin page
@@ -32,12 +33,16 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
         }`
       );
       const response = newReq.data;
-      console.log(response);
+      console.log(newReq.data.msg);
       const jwt = response.token;
       localStorage.setItem("jwt", jwt);
       navigate("/blogs");
-    } catch (error) {
-      console.log(error);
+      const message = type == "signup" ? "User created Sucessfully" : "Logged in Sucessfully";
+      coustomAlert("success",(message));
+    } catch (error : any) {
+      console.log(error.response.data.msg);
+      // add the custom alert here
+      coustomAlert("error",error.response.data.msg)
     } finally {
       setLoading(false);
     }

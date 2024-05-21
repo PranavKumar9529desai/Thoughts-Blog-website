@@ -1,5 +1,7 @@
 import { Avatar } from "./shadcn/ui/avatar";
-import { blog } from "../hooks/FetchBlogs";
+import { blog } from "@hooks/FetchBlogs";
+import { UserAtom } from "@state/UserAtom";
+import { useRecoilValue } from "recoil";
 
 // TOOD make it rePonsive
 export const SingleBlog = ({ blog }: { blog: blog }) => {
@@ -22,7 +24,7 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
           </div>
         </div>
         <div className="col-span-4 mx-auto hidden lg:block">
-          <AuthorCard authorName={blog.author.name} />
+          <AuthorCard authorName={blog.author.name}  />
         </div>
       </div>
     </>
@@ -30,6 +32,8 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
 };
 
 const AuthorCard = ({ authorName }: { authorName: string }) => {
+  const UserInfo = useRecoilValue(UserAtom); 
+  console.log(UserInfo);
   return (
     <>
       <div className="max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -43,7 +47,7 @@ const AuthorCard = ({ authorName }: { authorName: string }) => {
               {authorName ?  authorName.charAt(0).toUpperCase() + authorName.slice(1) : "A" }
             </div>
             <div className="text-slate-400 font-sm mt-1">
-              {authorName} is best devloper that ever lived on this planet.
+              {authorName} "is the best developer is have ever meet"
             </div>
           </div>
         </div>

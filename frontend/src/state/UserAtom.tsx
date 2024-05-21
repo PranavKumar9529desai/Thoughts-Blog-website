@@ -3,12 +3,13 @@ import { atom, selector } from "recoil";
 
 export interface User {
   name: string;
+  description : string ,
 }
 
-export const UserAtom  = atom({
-  key : "UserAtom",
-  default : null ,
-})
+export const UserAtom = atom<User>({
+  key: 'User',
+  default: { name: '', description: '' }, // Provide a default value for your user state
+});
 
 export const UserSelector = selector({
   key: "UserSelector",

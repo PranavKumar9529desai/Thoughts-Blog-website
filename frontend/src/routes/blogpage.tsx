@@ -1,6 +1,6 @@
-import { Appbar } from "../components/Appbar";
-import { SingleBlog } from "../components/singleBlog";
-import { useFetchSingleBlog } from "../hooks/FetchBlogs";
+import { Appbar } from "@components/Appbar";
+import { SingleBlog } from "@components/singleBlog";
+import { useFetchSingleBlog } from "@hooks/FetchBlogs";
 import { useParams } from "react-router-dom";
 import { ScaleLoader } from "react-spinners";
 

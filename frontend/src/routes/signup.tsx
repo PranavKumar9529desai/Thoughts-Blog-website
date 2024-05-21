@@ -1,8 +1,7 @@
-import React from 'react'
-import { Auth } from '../components/Auth'
-import Quote from '../components/Quote'
+import { Auth } from '@components/Auth'
+import Quote from '@components/Quote'
 import { useRecoilValue } from 'recoil'
-import { blogsState } from '../components/BlogSelctor'
+import { blogsState } from '@components/BlogSelctor'
 
 function signUp() {
   const blogs = useRecoilValue(blogsState);

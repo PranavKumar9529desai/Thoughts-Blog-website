@@ -1,9 +1,10 @@
-import { Appbar } from "../components/Appbar";
-import Editor from "../components/Editor";
+import { Appbar } from "@components/Appbar";
+import Editor from "@components/Editor";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
+import { coustomAlert } from "@components/customAlerts";
 
 interface blogInputtype {
   title: string;
@@ -34,27 +35,29 @@ export const CreateBlog = () => {
         }
       );
       console.log(response.data.newBlog);
-    } catch (error) {
+      coustomAlert("success", "Blog created sucessfully");
+      window.window.location.assign("/blogs");
+    } catch (error: any) {
       setLoading(false);
       console.log(error);
+      //add the custom error here
+      coustomAlert("error", error.response.data.msg);
     } finally {
       setLoading(false);
-      navigate("/blogs");
     }
   }
 
   return (
     <>
-      
       {isLoading ? (
         <div className=" flex justify-center items-center h-screen">
           <PacmanLoader color="#36d7b7" size={60} />
         </div>
       ) : (
-        // the actual editor 
+        // the actual editor
         <>
-        <Appbar />
-          <div className="text-3xl flex justify-center h-10 font-bold mb-20">
+          <Appbar />
+          <div className="text-3xl flex justify-center h-10 font-bold mb-20 ">
             Create Blog
           </div>
           <div className="mx-5 flex justify-between flex-col">
