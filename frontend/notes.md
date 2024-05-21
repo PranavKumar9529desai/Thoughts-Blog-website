@@ -44,3 +44,17 @@ clx let's you use the 2 or more classes and manipulate them dynamically.
 ### prisma 
 updating the schema it means migrating so the command is 
 npx prisma migrate dev --name "schema info for "
+
+### while using vite define the allias in the vite.config not in ts.config
+  xport default defineConfig({
+  plugins: [reactRefresh()],
+  resolve: {
+    alias: {
+      '@components': '/src/components',
+      '@assets': '/src/assets',
+      '@state': '/src/state',
+      '@hooks': '/src/hooks',
+      '@common': '../common',
+    }
+  }
+})
