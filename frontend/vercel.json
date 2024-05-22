@@ -1,6 +1,11 @@
 {
   "routes": [
     {
+      "src": "/(.*).(js|css|json|png|jpg|jpeg|gif|svg|ico)",
+      "headers": { "cache-control": "s-maxage=31536000,immutable" },
+      "continue": true
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
