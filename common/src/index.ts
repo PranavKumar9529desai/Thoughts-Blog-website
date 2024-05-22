@@ -1,4 +1,5 @@
-import z from 'zod' ;
+import * as z from 'zod';
+
 const hasUppercase = (str: string) => /[A-Z]/.test(str);
 const hasLowercase = (str: string) => /[a-z]/.test(str);
 const hasNumber = (str: string) => /\d/.test(str);
