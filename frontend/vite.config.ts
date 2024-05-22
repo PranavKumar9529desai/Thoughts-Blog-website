@@ -14,6 +14,7 @@ export default defineConfig({
       '@state': '/src/state',
       '@hooks': '/src/hooks',
       '@common': '../common',
+      '@node_modules' : "../../node_modules"
     },
   },
   css: {

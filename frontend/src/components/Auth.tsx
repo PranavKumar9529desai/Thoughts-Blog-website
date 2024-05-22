@@ -1,20 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
-import { signupInput } from "@common/src/index";
+//@ts-ignore
+import { SignupInput , CreatePostInput , SigninInput } from "@node_modules/zod_types_for_medium_project";
 import axios from "axios";
 import { BarLoader } from "react-spinners";
 import { coustomAlert } from "./customAlerts";
 
 export function Auth({ type }: { type: "signup" | "signin" }) {
   let [loading, setLoading] = useState(false);
-  const [postInputs, setpostInput] = useState<signupInput>({
+  const [postInputs, setpostInput] = useState<SignupInput>({
     email: "",
     password: "",
     username: "",
   });
   const navigate = useNavigate();
 
-  async function SendData(postInputs: signupInput) {
+  async function SendData(postInputs: SigninInput) {
     try {
       setLoading(true);
       console.log("function is called");
@@ -73,7 +74,7 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
                     label="Username"
                     placeholder="Pranav"
                     onChange={(e) => {
-                      setpostInput((c) => ({
+                      setpostInput((c : SignupInput) => ({
                         ...c,
                         username: e.target.value,
                       }));
@@ -88,10 +89,10 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
                   label="Email"
                   placeholder="xyz@gmail.com    "
                   onChange={(e) => {
-                    setpostInput((c) => ({
+                    setpostInput((c :SignupInput) => ({
                       ...c,
                       email: e.target.value,
-                    }));
+                    }) );
                   }}
                   type="email"
                 />
@@ -101,7 +102,7 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
                   label="Password"
                   placeholder="&#9679;&#9679;&#9679;&#9679;"
                   onChange={(e) => {
-                    setpostInput((c) => ({
+                    setpostInput((c: SignupInput) => ({
                       // overidng the previous input
                       ...c,
                       password: e.target.value,

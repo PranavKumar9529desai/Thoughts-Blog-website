@@ -112,9 +112,9 @@ const Bottom = () => {
       </div>
       <div className="ml-7 mt-1 w-[300px] h-min-content font-tinos fon-thin text-slate-400">
         All right are reserved{" "}
-        <Link className="underline-offset-4 font-tinos ">
+        <a href="https://www.linkedin.com/in/pranavkumar-desai-b27b8a252/" className="underline-offset-4 font-tinos ">
           &nbsp;@PranavKumar
-        </Link>
+        </a>
       </div>
     </div>
   );
