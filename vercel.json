@@ -9,5 +9,11 @@
         "src": "frontend/package.json",
         "use": "@vercel/node"
       }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/frontend/dist/$1"
+      }
     ]
   }
