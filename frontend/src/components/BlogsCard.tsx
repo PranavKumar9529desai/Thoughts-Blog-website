@@ -19,7 +19,7 @@ export const BlogsCard = ({
           <div className="flex text-s font-anton">
             <Avatar name={AuthorName} size="small" />
           </div>
-          <div className="flex m-3 text-md">
+          <div className="flex m-1 text-md w-full">
             {AuthorName}
             {/* dot bwtween the avatra name  */}
             <div className="flex mx-1">&#x2022;</div>

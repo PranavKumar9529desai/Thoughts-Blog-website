@@ -33,7 +33,7 @@ export const Home = () => {
 const AppBar = () => {
   return (
     <div className="  bg-slate-200 w-full flex justify-between items-center h-[5rem] border-b border-slate-900 ">
-      <div className="ml-[70px] text-3xl font-extrabold  font-montserrat flex ">
+      <div className="ml-[30px] text-3xl font-extrabold  font-montserrat flex ">
         <img
           alt="Medium logo"
           src={medium}
@@ -41,7 +41,7 @@ const AppBar = () => {
         ></img>
         <Link to="/">Medium</Link>
       </div>
-      <div className="mr-[70px] shadow-md shadow-slate-800 rounded-full hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 ">
+      <div className="mr-[30px] shadow-md shadow-slate-800 rounded-full hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 ">
         <AvatarDropDown size="small" />
       </div>
     </div>

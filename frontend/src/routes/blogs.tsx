@@ -70,7 +70,7 @@ export function Blogs() {
           </div>
         )}
       </div>
-      <div className=" top-[400px] right-[105px] lg:top-[600px] lg:right-[100px] rounded-full fixed ">
+      <div className=" top-[520px] right-[90px] lg:top-[600px] lg:right-[100px] rounded-full fixed ">
         <Editblog />
       </div>
     </>
