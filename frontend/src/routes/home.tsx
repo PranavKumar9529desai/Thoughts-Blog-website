@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { AvatarDropDown } from "@components/shadcn/ui/avatar";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   return (
@@ -25,10 +26,19 @@ export const Home = () => {
   );
 };
 
+
+
+
+
 const AppBar = () => {
   return (
     <div className="  bg-slate-200 w-full flex justify-between items-center h-[5rem] border-b border-slate-900 ">
-      <div className="ml-[70px] text-3xl font-extrabold  font-montserrat">
+      <div className="ml-[70px] text-3xl font-extrabold  font-montserrat flex ">
+      <img
+          alt="github image"
+          src="../src/assets/medium.png "
+          className="h-10 w-12 mr-2  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+        ></img> 
         <Link to="/">Medium</Link>
       </div>
       <div className="mr-[70px] shadow-md shadow-slate-800 rounded-full hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 ">
@@ -39,6 +49,8 @@ const AppBar = () => {
 };
 
 const CenterTextComponet = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full h-[300px] flex justify-center flex-col items-start ">
@@ -48,10 +60,12 @@ const CenterTextComponet = () => {
         <div className="m-2 *:font-sm font-mono py-1 my-8 text-2xl">
           Discover stories, thinking, and expertise from writers on any topic.
         </div>
+
         <button
+          onClick={() => navigate("/blogs")}
           type="button"
           className="w-[180px] mt-4  
-          m-1 text-lg text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg px-3 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+          m-1 text-lg text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg px-3 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 hover:shadow-3xl hover:-translate-y-1  transition-all duration-300 "
         >
           Start reading
         </button>
