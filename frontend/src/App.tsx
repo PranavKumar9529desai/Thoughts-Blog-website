@@ -10,7 +10,7 @@ import { CreateBlog } from "./routes/createBlog";
 function Main() {
   return (
     <div>
-      {/* empty comment */}
+      
       {/* {location.pathname !== '/' && <Navbar />} */}
       {/* not to show the navbar on home route instead wrap the navabat and home in same component and then render it  */}
       <Routes>
