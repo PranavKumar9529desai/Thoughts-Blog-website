@@ -64,30 +64,32 @@ const Bottom = () => {
   return (
     <div className="flex flex-col bg-white w-full h-[4rem] items-center justify-center border-t border-slate-900">
       <div className="flex justify-evenly w-[200px]">
-        <div>
+        <div className="">
           <a href="https://github.com/PranavKumar9529desai/Thoughts-Blog-website">
             <img
               alt="github image"
-              src="../src/assets/github.png"
-              className="h-5 w-5"
+              src="../src/assets/github.png "
+              className="h-6 w-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             ></img>
           </a>
         </div>
         <div>
-          <a href="">
+          <a href="https://www.linkedin.com/in/pranavkumar-desai-b27b8a252/">
             <img
               alt="github image"
               src="../src/assets/linkdein.png"
-              className="h-5 w-5"
+              className="h-6 w-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             ></img>
           </a>
         </div>
         <div>
-          <img
-            alt="github image"
-            src="../src/assets/twiter.png"
-            className="h-5 w-5"
-          ></img>
+          <a href="https://x.com/pranavdesa1549">
+            <img
+              alt="github image"
+              src="../src/assets/twiter.png"
+              className="h-6 w-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            ></img>
+          </a>
         </div>
       </div>
       <div className="ml-7 mt-1 w-[300px] h-min-content font-tinos fon-thin text-slate-400">
