@@ -18,7 +18,8 @@ import xml from "highlight.js/lib/languages/xml";
 
 import html from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/atom-one-dark.css";
-import { createPostInput } from "../../../common/src";
+// @ts-ignore
+import { CreatePostInput } from "@node_modules/zod_types_for_medium_project";
 
 hljs.registerLanguage("javascript", javascript);
 hljs.registerLanguage("java", java);
