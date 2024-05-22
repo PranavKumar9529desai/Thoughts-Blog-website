@@ -58,3 +58,16 @@ npx prisma migrate dev --name "schema info for "
     }
   }
 })
+
+
+# how to serve the file from the folder
+
+n a production environment, your site would be served from a server using the http:// or https:// protocol, which doesn't have these limitations.
+
+To view your built project locally, you need to serve it from a local server. You can do this using a simple static server. One common tool for this is serve. You can install it globally with npm using the following command:
+
+Then, navigate to the directory containing your index.html file (usually the dist directory) and run the following command:
+
+npm install -g serve
+
+serve .

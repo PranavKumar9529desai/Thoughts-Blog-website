@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { AvatarDropDown } from "@components/shadcn/ui/avatar";
 import { useNavigate } from "react-router-dom";
+import github from "@assets/github.png";
+import linkdein from "@assets/linkdein.png";
+import twiter from "@assets/twiter.png";
+import medium from "@assets/medium.png";
 
 export const Home = () => {
   return (
@@ -35,8 +39,8 @@ const AppBar = () => {
     <div className="  bg-slate-200 w-full flex justify-between items-center h-[5rem] border-b border-slate-900 ">
       <div className="ml-[70px] text-3xl font-extrabold  font-montserrat flex ">
       <img
-          alt="github image"
-          src="../src/assets/medium.png "
+          alt="Medium logo"
+          src={medium}
           className="h-10 w-12 mr-2  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
         ></img> 
         <Link to="/">Medium</Link>
@@ -82,7 +86,7 @@ const Bottom = () => {
           <a href="https://github.com/PranavKumar9529desai/Thoughts-Blog-website">
             <img
               alt="github image"
-              src="../src/assets/github.png "
+              src={github}
               className="h-6 w-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             ></img>
           </a>
@@ -91,7 +95,7 @@ const Bottom = () => {
           <a href="https://www.linkedin.com/in/pranavkumar-desai-b27b8a252/">
             <img
               alt="github image"
-              src="../src/assets/linkdein.png"
+              src={linkdein}
               className="h-6 w-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             ></img>
           </a>
@@ -100,7 +104,7 @@ const Bottom = () => {
           <a href="https://x.com/pranavdesa1549">
             <img
               alt="github image"
-              src="../src/assets/twiter.png"
+              src={twiter}
               className="h-6 w-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             ></img>
           </a>
