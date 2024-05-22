@@ -19,7 +19,6 @@ export const CreateBlog = () => {
     title: "", // add this
     author: "", // and this
   });
-  const navigate = useNavigate();
 
   async function createblog({ blogInput }: { blogInput: blogInputtype }) {
     console.log("blogInput is : ", blogInput);

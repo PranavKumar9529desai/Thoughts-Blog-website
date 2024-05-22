@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { AvatarDropDown } from "./shadcn/ui/avatar";
 export function Appbar() {
   return (
-    // TODO add the logout and signin and add profile dropdown
     <div className="z-40 bg-slate-200 w-full flex justify-between items-center h-[4rem] border-b border-slate-400 fixed ">
       <div className="text-3xl font-extrabold ml-10 font-montserrat">
         <Link to="/blogs">Medium</Link>

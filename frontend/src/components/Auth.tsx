@@ -5,8 +5,6 @@ import axios from "axios";
 import { BarLoader } from "react-spinners";
 import { coustomAlert } from "./customAlerts";
 
-// TODO can add @ means use allias to make import cleaner
-// TODO add customalerts in the signup and signin page
 export function Auth({ type }: { type: "signup" | "signin" }) {
   let [loading, setLoading] = useState(false);
   const [postInputs, setpostInput] = useState<signupInput>({
@@ -37,12 +35,13 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
       const jwt = response.token;
       localStorage.setItem("jwt", jwt);
       navigate("/blogs");
-      const message = type == "signup" ? "User created Sucessfully" : "Logged in Sucessfully";
-      coustomAlert("success",(message));
-    } catch (error : any) {
+      const message =
+        type == "signup" ? "User created Sucessfully" : "Logged in Sucessfully";
+      coustomAlert("success", message);
+    } catch (error: any) {
       console.log(error.response.data.msg);
       // add the custom alert here
-      coustomAlert("error",error.response.data.msg)
+      coustomAlert("error", error.response.data.msg);
     } finally {
       setLoading(false);
     }

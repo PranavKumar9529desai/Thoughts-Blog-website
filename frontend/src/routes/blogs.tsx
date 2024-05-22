@@ -27,19 +27,15 @@ export function Blogs() {
         ) : (
           <div className="mt-20">
             {Blogs.map((blog, index) => {
-              console.log(blog);
               const imageUrl = extractImage(blog.content);
               const contentWithoutImage = blog.content.replace(/<img.*?>/g, "");
-              console.log(imageUrl);
               return (
                 <div
                   key={index}
                   className="w-[900px] py-1 border-b border-slate-400"
                 >
-                  {/* TODO make the publishedDate dynamic  */}
-                  <div className="flex justify-between rounded-xl">
-
-                  <div className="grid grid-cols-12 ">
+                  <div className="flex justify-between rounded-xl bg-slate-50">
+                    <div className="grid grid-cols-12 ">
                       <div className="col-span-8 w-[600px]">
                         <Link to={"/blogs/" + blog.id}>
                           <BlogsCard
