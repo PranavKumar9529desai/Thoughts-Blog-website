@@ -84,8 +84,8 @@ function Editor({
   setBlogInput,
   blogInput,
 }: {
-  setBlogInput: React.Dispatch<React.SetStateAction<createPostInput>>;
-  blogInput: createPostInput;
+  setBlogInput: React.Dispatch<React.SetStateAction<CreatePostInput>>;
+  blogInput: CreatePostInput;
 }) {
   return (
     <>
