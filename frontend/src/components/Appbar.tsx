@@ -11,7 +11,7 @@ export function Appbar() {
         ></img> 
         <Link to="/">Medium</Link>
       </div>
-      <div className="lg:mr-20 mr-3 shadow-md shadow-slate-800 rounded-full   hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 ">
+      <div className="lg:mr-20 mr-16 shadow-md shadow-slate-800 rounded-full   hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 ">
         <AvatarDropDown size="small" />
       </div>
     </div>
