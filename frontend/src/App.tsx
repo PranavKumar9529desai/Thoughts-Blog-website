@@ -19,6 +19,8 @@ function Main() {
         <Route path ="blogs/createblog" element={<CreateBlog />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="*" element={<Home />} />
+
       </Routes>
     </div>
   );

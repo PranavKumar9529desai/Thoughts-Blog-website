@@ -2,7 +2,6 @@ import { Appbar } from "@components/Appbar";
 import Editor from "@components/Editor";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { coustomAlert } from "@components/customAlerts";
 
