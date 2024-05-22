@@ -71,3 +71,13 @@ Then, navigate to the directory containing your index.html file (usually the dis
 npm install -g serve
 
 serve .
+
+# how to increamnet the npm packge version 
+Here's how you can do it manually:
+
+Open your package.json file.
+Find the version field.
+Increment the version number. For example, if the current version is 1.0.1, you can change it to 1.0.2.
+Here's how you can do it using the npm version command:
+
+This command will increment the patch version (the third number) by one. If you want to increment the minor version (the second number), you can use npm version minor. If you want to increment the major version (the first number), you can use npm version major.
