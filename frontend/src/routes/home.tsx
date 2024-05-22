@@ -30,19 +30,15 @@ export const Home = () => {
   );
 };
 
-
-
-
-
 const AppBar = () => {
   return (
     <div className="  bg-slate-200 w-full flex justify-between items-center h-[5rem] border-b border-slate-900 ">
       <div className="ml-[70px] text-3xl font-extrabold  font-montserrat flex ">
-      <img
+        <img
           alt="Medium logo"
           src={medium}
           className="h-10 w-12 mr-2  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-        ></img> 
+        ></img>
         <Link to="/">Medium</Link>
       </div>
       <div className="mr-[70px] shadow-md shadow-slate-800 rounded-full hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 ">
@@ -66,7 +62,14 @@ const CenterTextComponet = () => {
         </div>
 
         <button
-          onClick={() => navigate("/blogs")}
+          onClick={() => {
+            const jwt = localStorage.getItem("jwt");
+            if (jwt) {
+              navigate("/blogs");
+            } else {
+              navigate("/signin");
+            }
+          }}
           type="button"
           className="w-[180px] mt-4  
           m-1 text-lg text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg px-3 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 hover:shadow-3xl hover:-translate-y-1  transition-all duration-300 "
@@ -112,7 +115,10 @@ const Bottom = () => {
       </div>
       <div className="ml-7 mt-1 w-[300px] h-min-content font-tinos fon-thin text-slate-400">
         All right are reserved{" "}
-        <a href="https://www.linkedin.com/in/pranavkumar-desai-b27b8a252/" className="underline-offset-4 font-tinos ">
+        <a
+          href="https://www.linkedin.com/in/pranavkumar-desai-b27b8a252/"
+          className="underline-offset-4 font-tinos "
+        >
           &nbsp;@PranavKumar
         </a>
       </div>
