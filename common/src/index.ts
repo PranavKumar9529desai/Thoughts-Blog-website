@@ -34,7 +34,7 @@ const SigninInput = z.object({
         'Password must contain uppercase, lowercase, numbers, and symbols'
 );
 
-export type signinInput = z.infer<typeof SignupInput>;
+export type signinInput = z.infer<typeof SigninInput>;
 
 const CreatePostInput = z.object({
     title : z.string().min(7, "Invalid title ,title atlest have 7 words"),
