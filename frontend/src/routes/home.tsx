@@ -57,7 +57,7 @@ const CenterTextComponet = () => {
         <div className="animate-rotate-x lg:text-9xl font-md font-dmserif text-6xl ">
           Stay curious.
         </div>
-        <div className="m-2 *:font-sm font-mono py-1 my-8 text-xl text-center  lg:text-2xl lg:text-start">
+        <div className="m-2 *:font-sm font-mono lg:font-mono py-1 my-8 text-xl text-center  lg:text-2xl lg:text-start">
           Discover stories, thinking, and expertise from writers on any topic.
         </div>
 
