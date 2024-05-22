@@ -9,12 +9,12 @@ export const Home = () => {
         <div className="">
           <AppBar />
         </div>
-        <div className="grid grid-cols-12 mt-20  ml-[70px]">
-          <div className="flex items-center col-span-6 justify-center">
+        <div className="grid grid-cols-12 mt-20  lg:ml-[70px] ">
+          <div className="flex items-center col-span-12 lg:col-span-8 justify-center ">
             <CenterTextComponet />
           </div>
-          <div className="col-span-4 flex justify-center items-center">
-            {/* {some animation} */}
+          <div className="hidden lg:flex col-span-4 justify-center items-center">
+            {/* "some animation" */}
           </div>
         </div>
         {/* bottom component */}
@@ -53,11 +53,11 @@ const CenterTextComponet = () => {
 
   return (
     <>
-      <div className="w-full h-[300px] flex justify-center flex-col items-start ">
-        <div className="animate-rotate-x text-9xl font-md font-dmserif ">
+      <div className="w-full h-[300px] flex justify-center flex-col lg:items-start items-center ">
+        <div className="animate-rotate-x lg:text-9xl font-md font-dmserif text-6xl ">
           Stay curious.
         </div>
-        <div className="m-2 *:font-sm font-mono py-1 my-8 text-2xl">
+        <div className="m-2 *:font-sm font-mono py-1 my-8 text-xl text-center  lg:text-2xl lg:text-start">
           Discover stories, thinking, and expertise from writers on any topic.
         </div>
 
@@ -76,9 +76,9 @@ const CenterTextComponet = () => {
 
 const Bottom = () => {
   return (
-    <div className="flex flex-col bg-white w-full h-[4rem] items-center justify-center border-t border-slate-900">
-      <div className="flex justify-evenly w-[200px]">
-        <div className="">
+    <div className="flex flex-col bg-white w-full h-[4rem] items-center justify-center border-t border-slate-900  ">
+      <div className="flex lg:justify-evenly lg:w-[200px]  ">
+        <div className="mx-2">
           <a href="https://github.com/PranavKumar9529desai/Thoughts-Blog-website">
             <img
               alt="github image"
@@ -87,7 +87,7 @@ const Bottom = () => {
             ></img>
           </a>
         </div>
-        <div>
+        <div className="mx-2">
           <a href="https://www.linkedin.com/in/pranavkumar-desai-b27b8a252/">
             <img
               alt="github image"
@@ -96,7 +96,7 @@ const Bottom = () => {
             ></img>
           </a>
         </div>
-        <div>
+        <div className="mx-2">
           <a href="https://x.com/pranavdesa1549">
             <img
               alt="github image"
