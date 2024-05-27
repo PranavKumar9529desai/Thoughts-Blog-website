@@ -32,7 +32,7 @@ export const BlogPage = () => {
             </div>
             {/* Placeholder for the Appbar */}
             <div style={{ height: "64px" }}></div>
-            <div className="mt-10  ml-10">
+            <div className="lg:mt-10  lg:ml-10 m-2">
               <SingleBlog blog={blog} />
             </div>
           </>
