@@ -15,11 +15,11 @@ export const BlogsCard = ({
   return (
     <>
       <div className="w-full  m-3 relative ">
-        <div className="flex items-center">
+        <div className="flex items-center ml-3">
           <div className="flex text-s font-anton">
             <Avatar name={AuthorName} size="small" />
           </div>
-          <div className="flex m-1 text-md w-full">
+          <div className="flex ml-2 m-1 text-md w-full">
             {AuthorName}
             {/* dot bwtween the avatra name  */}
             <div className="flex mx-1">&#x2022;</div>
