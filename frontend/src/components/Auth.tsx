@@ -59,15 +59,15 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
         }}
       >
         {/* this div is nessary to quote appear on rigth side */}
-        <div className="relative max-w-lg  bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 overflow-hidden">
+        <div className="relative  sm:w-[500px] w-80 bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 overflow-hidden">
           <BarLoader color="#36d7b7" height={4} width={450} loading={loading} />
 
-          <div className="flex justify-center items-center  flex-col my-10 mx-12">
-            <div className="text-4xl font-extrabold ">
+          <div className="flex justify-center items-center  flex-col sm:my-10 sm:mx-12 p-8 ">
+            <div className="sm:text-4xl text-3xl font-extrabold ">
               {type == "signup" ? "Create account" : "Login"}
             </div>
-            <div className="flex mt-4 ">
-              <div className="flex justify-center flex-col ">
+            <div className="flex sm:mt-4 ">
+              <div className="flex justify-center flex-col  ">
                 {/* when signup show Username field */}
                 {type === "signup" ? (
                   <LabeledInput
@@ -151,7 +151,7 @@ export function LabeledInput({
 }: LabeledInput) {
   return (
     <>
-      <div className="flex flex-col justify-start w-80 mt-2">
+      <div className="flex flex-col justify-start sm:w-80 w-60 mt-2">
         <label className="block mb-2 text-md font-medium text-gray-900 dark:text-white">
           {label}
         </label>
