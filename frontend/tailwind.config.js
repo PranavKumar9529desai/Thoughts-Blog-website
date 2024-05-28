@@ -17,6 +17,7 @@ module.exports = {
       },
     },
     extend: {
+      
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -61,8 +62,15 @@ module.exports = {
         'montserrat': ['Montserrat', 'sans-serif'],
         'ubuntu': ['Ubuntu', 'sans-serif'],
         'anton' : ['Anton', 'sans-serif'],
+        'tinos' : ['Tinos', 'sans-serif'],
+        'dmserif': ['"Droid Serif"', 'serif'],
       },
       keyframes: {
+        'rotate-x': {
+          '0%': { transform: 'rotateX(0deg)' },
+          '10%': { transform: 'rotateX(360deg)' },
+          '100%': { transform: 'rotateX(360deg)' },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -75,6 +83,8 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        'rotate-x': 'rotate-x 10s linear infinite',
+
       },
     },
   },

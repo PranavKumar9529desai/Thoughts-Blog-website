@@ -13,9 +13,9 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
   });
   return (
     <>
-      <div className="grid grid-cols-12 w-full ">
-        <div className="col-span-8 ">
-          <div className="text-6xl font-montserrat font-extrabold ">
+      <div className="lg:grid lg:grid-cols-12 w-full ">
+        <div className="lg:col-span-8 ">
+          <div className="lg:text-6xl text-3xl font-montserrat font-extrabold ">
             {blog.title}
           </div>
           <div className="text-slate-400  my-3">
