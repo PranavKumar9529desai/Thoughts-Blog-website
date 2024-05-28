@@ -54,7 +54,7 @@ const CenterTextComponet = () => {
   return (
     <>
       <div className="w-full h-[300px] flex justify-center flex-col lg:items-start items-center ">
-        <div className="animate-rotate-x lg:text-9xl font-md font-dmserif text-6xl ">
+        <div className="animate-rotate-x lg:text-9xl font-md font-dmserif text-6xl text-center">
           Stay curious.
         </div>
         <div className="m-2 *:font-sm font-mono lg:font-mono py-1 my-8 text-xl text-center  lg:text-2xl lg:text-start">

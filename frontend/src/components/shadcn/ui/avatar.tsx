@@ -1,6 +1,7 @@
 import { useState } from "react";
 import profileImage from "@assets/profileImage.png";
 import { coustomLogoutAlert, DescriptionModal } from "@components/customAlerts";
+import { useNavigate } from "react-router-dom";
 export function Avatar({
   name,
   size,
@@ -38,6 +39,13 @@ export function Avatar({
 
 export function AvatarDropDown({ size }: { size: "small" | "big" }) {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  function HandleLogout() {
+    console.log("logout clicked");
+    coustomLogoutAlert(navigate);
+  }
+
   return (
     <div
       onClick={() => {
@@ -53,12 +61,6 @@ export function AvatarDropDown({ size }: { size: "small" | "big" }) {
           size === "small" ? "w-10 h-10" : "w-14 h-14"
         }   bg-slate-100 rounded-full dark:bg-gray-600`}
       >
-        {/* <span
-          className={`size == "big" ? "font-medium" : "font-sm" text-slate-600 dark:text-gray-300 `}
-        >
-          {initials}
-        </span> */}
-
         <img src={profileImage} alt="Edit blog" className="w-8 h-8  " />
       </button>
       {isOpen && (
@@ -82,11 +84,6 @@ export function AvatarDropDown({ size }: { size: "small" | "big" }) {
       )}
     </div>
   );
-}
-
-function HandleLogout() {
-  console.log("logout clicked");
-  coustomLogoutAlert();
 }
 
 function HandleDescription() {

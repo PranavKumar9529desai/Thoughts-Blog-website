@@ -1,6 +1,7 @@
 import Swal, { SweetAlertIcon } from "sweetalert2";
 import { useRecoilCallback } from "recoil";
 import { User, UserAtom } from "@state/UserAtom";
+import { NavigateFunction } from "react-router-dom";
 // fix this 
 
 const Toast = Swal.mixin({
@@ -22,7 +23,7 @@ export const coustomAlert = (icon: SweetAlertIcon, message: string) => {
   });
 };
 
-export const coustomLogoutAlert = () => {
+export const coustomLogoutAlert = ( navigate : NavigateFunction) => {
   Swal.fire({
     title: "Are you sure?",
     text: "Do you really want to logout!",
@@ -40,7 +41,8 @@ export const coustomLogoutAlert = () => {
       }).then(() => {
         // navigate("/signin");
         localStorage.removeItem("jwt");
-        window.location.href = "/signin" ;
+        navigate("/signin");
+        // window.location.href = "/signin";
         
       });
     }
