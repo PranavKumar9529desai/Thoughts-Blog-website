@@ -2,7 +2,7 @@ import axios from 'axios';
 import { selector , selectorFamily } from 'recoil'
 
 
-
+// selector to fetch all the blogs
 export const blogSelector = selector({
   key : 'blogsFamily',
   get : async () => {
@@ -20,7 +20,7 @@ export const blogSelector = selector({
 // selector to fetch a single blog 
 export const useSingleBlog = selectorFamily({
   key: 'SingleBlog',
-  get: (id: string) => async ({get}) => {
+  get: (id: string) => async ({}) => {
     const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/blog/${id}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),

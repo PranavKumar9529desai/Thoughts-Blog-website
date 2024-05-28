@@ -11,7 +11,6 @@ export const BlogsCard = ({
   publishedDate,
   title,
   description,
-  
 }: BlogsProps) => {
   return (
     <>
@@ -29,8 +28,12 @@ export const BlogsCard = ({
         </div>
         <div className="">
           <div className="text-2xl font-bold my-2 font-montserrat">{title}</div>
-          {/* TODO note this  */}
-          <div className="text-md leading-7 my-2 font-anton" dangerouslySetInnerHTML={{ __html: description.slice(0, 200) + ". . . . ." }} />
+          <div
+            className="text-md leading-7 my-2 font-anton"
+            dangerouslySetInnerHTML={{
+              __html: description.slice(0, 200) + ". . . . .",
+            }}
+          />
 
           <div className="text-slate-600 font-semibold font-anton">{`${Math.ceil(
             description.length / 100
