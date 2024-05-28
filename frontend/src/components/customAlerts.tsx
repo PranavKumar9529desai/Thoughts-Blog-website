@@ -2,7 +2,6 @@ import Swal, { SweetAlertIcon } from "sweetalert2";
 import { useRecoilCallback } from "recoil";
 import { User, UserAtom } from "@state/UserAtom";
 // fix this 
-import { useNavigate } from "react-router-dom";
 
 const Toast = Swal.mixin({
   toast: true,
