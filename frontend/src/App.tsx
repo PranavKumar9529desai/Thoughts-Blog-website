@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./routes/home";
+import {Home} from "./routes/home";
 import SignIn from "./routes/signin";
 import { Blogs } from "./routes/blogs";
 import SignUp from "./routes/signup";
@@ -10,6 +10,7 @@ import { CreateBlog } from "./routes/createBlog";
 function Main() {
   return (
     <div>
+      
       {/* {location.pathname !== '/' && <Navbar />} */}
       {/* not to show the navbar on home route instead wrap the navabat and home in same component and then render it  */}
       <Routes>
@@ -19,6 +20,8 @@ function Main() {
         <Route path ="blogs/createblog" element={<CreateBlog />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="*" element={<Home />} />
+
       </Routes>
     </div>
   );

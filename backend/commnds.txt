@@ -1,0 +1,13 @@
+ npx prisma migrate dev --name init_schema
+
+ ---> to create a new migration file
+
+
+ if you have a route for /:id defined before /bulk, the /:id route will match any path, including /bulk, and handle the request.
+
+
+ return is important in try catch block to prevent the code from running further if an error occurs
+ clears the context.
+
+ as we are doing things in tuborepo . so we initalize the folder called as "Common" then we will which will act as the common folder between the frontend and backend.
+ we will put our zod types in that folder.
