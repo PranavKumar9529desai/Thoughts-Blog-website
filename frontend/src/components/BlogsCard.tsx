@@ -26,10 +26,14 @@ export const BlogsCard = ({
             <div className="text-slate-600 ">{publishedDate}</div>
           </div>
         </div>
-        <div className="">
-          <div className="text-2xl font-bold my-2 font-montserrat">{title}</div>
-          {/* TODO note this  */}
-          <div className="text-md leading-7 my-2 font-anton" dangerouslySetInnerHTML={{ __html: description.slice(0, 200) + ". . . . ." }} />
+        <div className="flex flex-col w-screen px-4">
+          <div className="lg:w-[500px] w-full text-2xl font-bold my-2 font-montserrat">{title}</div>
+          <div
+            className="lg:w-[500px] w-full text-md leading-7 my-2 font-anton"
+            dangerouslySetInnerHTML={{
+              __html: description.slice(0, 200) + ". . . . .",
+            }}
+          />
 
           <div className=" text-slate-600 font-semibold font-anton">{`${Math.ceil(
             description.length / 100

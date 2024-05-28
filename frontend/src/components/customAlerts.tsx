@@ -1,6 +1,7 @@
 import Swal, { SweetAlertIcon } from "sweetalert2";
 import { useRecoilCallback } from "recoil";
 import { User, UserAtom } from "@state/UserAtom";
+// fix this 
 import { useNavigate } from "react-router-dom";
 
 const Toast = Swal.mixin({
@@ -40,7 +41,7 @@ export const coustomLogoutAlert = () => {
       }).then(() => {
         // navigate("/signin");
         localStorage.removeItem("jwt");
-        window.location.assign("signin");
+        window.location.href = "/signin" ;
         
       });
     }
