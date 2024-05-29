@@ -60,7 +60,7 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
       >
         {/* this div is nessary to quote appear on rigth side */}
         <div className="relative  sm:w-[500px] w-80 bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 overflow-hidden">
-          <BarLoader color="#36d7b7" height={4} width={450} loading={loading} />
+          <BarLoader color="#36d7b7" height={4} width={600} loading={loading} />
 
           <div className="flex justify-center items-center  flex-col sm:my-10 sm:mx-12 p-8 ">
             <div className="sm:text-4xl text-3xl font-extrabold ">
