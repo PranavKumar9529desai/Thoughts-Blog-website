@@ -28,7 +28,7 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
             className="text-lg leading-10 font-ubuntu mt-5"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           ></div>
-          <div className="mt-10 mb-20 col-span-4 mx-auto block lg:hidden">
+          <div className="mt-10 mb-20 col-span-4 mx-auto block lg:hidden ">
             <AuthorCard authorName={blog.author.name} />
           </div>
         </div>
