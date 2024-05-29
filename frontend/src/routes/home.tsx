@@ -33,11 +33,11 @@ export const Home = () => {
 const AppBar = () => {
   return (
     <div className="  bg-slate-200 w-full flex justify-between items-center h-[5rem] border-b border-slate-900 ">
-      <div className="ml-[70px] text-3xl font-extrabold  font-montserrat flex ">
+      <div className="lg:ml-[70px] ml-5 text-3xl font-extrabold  font-montserrat flex ">
         <img
           alt="Medium logo"
           src={medium}
-          className="h-10 w-12 lg:mr-3  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+          className="h-10 w-12 mr-3  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
         ></img>
         <Link to="/">Medium</Link>
       </div>
@@ -114,7 +114,7 @@ const Bottom = () => {
         </div>
       </div>
       <div className="ml-7 mt-1 w-[300px] h-min-content font-tinos fon-thin text-slate-400">
-        All right are reserved{" "}
+        All rights are Reserved{" "}
         <a
           href="https://www.linkedin.com/in/pranavkumar-desai-b27b8a252/"
           className="underline-offset-4 font-tinos "
