@@ -14,17 +14,23 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
   return (
     <>
       <div className="lg:grid lg:grid-cols-12 w-full ">
-        <div className="lg:col-span-8 lg:m-1 px-9 pt-4" >
-          <div className="lg:text-6xl text-3xl font-montserrat font-extrabold ">
-            {blog.title}
+        <div className="lg:col-span-8 lg:m-1 px-9 pt-4 ">
+          <div className="border-b border-gray-200 shadow-sm">
+            <div className="lg:text-6xl text-3xl font-montserrat font-extrabold ">
+              {blog.title}
+            </div>
+            <div className="text-slate-400  my-3">
+              {`Posted on ${createdAt}` || "16 May 2024"}
+            </div>
           </div>
-          <div className="text-slate-400  my-3">
-            {`Posted on ${createdAt}` || "16 May 2024"}
-          </div>
+
           <div
             className="text-lg leading-10 font-ubuntu mt-5"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           ></div>
+          <div className="mt-10 mb-20 col-span-4 mx-auto block lg:hiden">
+            <AuthorCard authorName={blog.author.name} />
+          </div>
         </div>
         <div className="col-span-4 mx-auto hidden lg:block">
           <AuthorCard authorName={blog.author.name} />

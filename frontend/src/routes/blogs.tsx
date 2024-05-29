@@ -20,7 +20,7 @@ export function Blogs() {
       <div className="flex  items-center flex-col max">
         {Loading ? (
           <>
-            <div className="lg:mt-20 lg:flex  flex-col items-center w-full px-4 mt-20">
+            <div className="lg:mt-20 lg:flex  flex-col items-center w-full lg:px-4 px-12 pt-10 mt-20">
               <CustomSkelton blogCount={3} />
             </div>
           </>
