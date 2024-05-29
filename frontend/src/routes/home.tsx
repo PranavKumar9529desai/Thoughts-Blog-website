@@ -33,11 +33,11 @@ export const Home = () => {
 const AppBar = () => {
   return (
     <div className="  bg-slate-200 w-full flex justify-between items-center h-[5rem] border-b border-slate-900 ">
-      <div className="ml-[30px] text-3xl font-extrabold  font-montserrat flex ">
+      <div className="ml-[70px] text-3xl font-extrabold  font-montserrat flex ">
         <img
           alt="Medium logo"
           src={medium}
-          className="h-10 w-12 mr-2  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+          className="h-10 w-12 lg:mr-3  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
         ></img>
         <Link to="/">Medium</Link>
       </div>
@@ -83,7 +83,7 @@ const CenterTextComponet = () => {
 
 const Bottom = () => {
   return (
-    <div className="flex flex-col bg-white w-full h-[4rem] items-center justify-center border-t border-slate-900  ">
+    <div className="flex flex-col bg-white w-full h-[5rem] items-center justify-center border-t border-slate-900  ">
       <div className="flex lg:justify-evenly lg:w-[200px]  ">
         <div className="mx-2">
           <a href="https://github.com/PranavKumar9529desai/Thoughts-Blog-website">
