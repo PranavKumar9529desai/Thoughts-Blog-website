@@ -40,7 +40,7 @@ export function Blogs() {
                   className="lg:w-[900px] py-1 border-b border-slate-400"
                 >
                   {/* TODO make the publishedDate dynamic  */}
-                  <div className="flex justify-between rounded-xl">
+                  <div className="flex justify-between rounded-xl overflow-hidden">
                     <div className="grid grid-cols-12 ">
                       <div className="col-span-8 ">
                         <Link to={"/blogs/" + blog.id}>

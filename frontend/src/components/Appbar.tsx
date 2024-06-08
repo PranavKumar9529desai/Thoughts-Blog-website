@@ -4,7 +4,7 @@ import medium from "@assets/medium.png";
 
 export function Appbar() {
   return (
-    <nav className="z-50 bg-slate-200 lg:w-full w-screen flex justify-between items-center h-[4rem] border-b border-slate-600 fixed top-0 ">
+    <nav className="z-50 bg-slate-200 w-full lg:w-full  flex justify-between items-center h-[4rem] border-b border-slate-600 fixed top-0 overflow-hidden">
       <div className="text-3xl font-extrabold lg:ml-10 ml-5 font-montserrat flex">
         <img
           alt="medium logo"
