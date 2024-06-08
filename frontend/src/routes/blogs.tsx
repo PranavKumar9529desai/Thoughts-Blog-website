@@ -19,15 +19,15 @@ export function Blogs() {
       <div>
         <Appbar />
       </div>
-      <div className="mt-10 flex  items-center flex-col max">
+      <div className="mt-12 flex  items-center flex-col max">
         {Loading ? (
           <>
-            <div className="lg:mt-1 lg:flex  flex-col items-center w-full lg:px-4 px-12 pt-10 mt-20">
-              <CustomSkelton blogCount={3} />
-            </div>
+            <div className="lg:mt-10 lg:flex  flex-col items-center w-full px-4 mt-10">
+            <CustomSkelton blogCount={3} />
+          </div>
           </>
         ) : (
-          // <div className="lg:mt-20 lg:flex  flex-col items-center w-full px-4 mt-20">
+          // <div className="lg:mt-10 lg:flex  flex-col items-center w-full px-4 mt-10">
           //   <CustomSkelton blogCount={3} />
           // </div>
           <div className="mt-6">
