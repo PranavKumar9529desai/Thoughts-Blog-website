@@ -9,17 +9,16 @@ import medium from "@assets/medium.png";
 export const Home = () => {
   return (
     <>
-      <div className="h-screen flex flex-col bg-slate-200">
+      <div className="h-screen flex flex-col bg-slate-200 overflow-hidden">
         <div className="">
           <AppBar />
         </div>
-        <div className="grid grid-cols-12 mt-20  lg:ml-[70px] ">
+        <div className="grid grid-cols-12   lg:ml-[70px]  h-full w-full">
+          <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
           <div className="flex items-center col-span-12 lg:col-span-8 justify-center ">
             <CenterTextComponet />
           </div>
-          <div className="hidden lg:flex col-span-4 justify-center items-center">
-            {/* "some animation" */}
-          </div>
+          <div className="hidden lg:flex col-span-4 justify-end items-end relative lg:h-full"></div>
         </div>
         {/* bottom component */}
         <div className="justify-self-end mt-auto ">

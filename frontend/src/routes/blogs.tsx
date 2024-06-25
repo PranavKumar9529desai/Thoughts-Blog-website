@@ -22,14 +22,14 @@ export function Blogs() {
       <div className="mt-12 flex  items-center flex-col max">
         {Loading ? (
           <>
-            <div className="lg:mt-10 lg:flex  flex-col items-center w-full px-4 mt-10">
+             <div className="lg:mt-10 lg:ml-[800px] lg:flex  flex-col  items-center w-full px-4 mt-10">
             <CustomSkelton blogCount={3} />
           </div>
           </>
         ) : (
-          // <div className="lg:mt-10 lg:flex  flex-col items-center w-full px-4 mt-10">
-          //   <CustomSkelton blogCount={3} />
-          // </div>
+            // <div className="lg:mt-10 lg:ml-[800px] lg:flex  flex-col  items-center w-full px-4 mt-10">
+            //   <CustomSkelton blogCount={3} />
+            // </div>
           <div className="mt-6">
             {Blogs.map((blog, index) => {
               const imageUrl = extractImage(blog.content);

@@ -16,10 +16,13 @@ If you want to remove the element from the document flow when it's not visible, 
 
 ### how to pass the props in the code 
 
+
 // Expects a single string parameter
 function Avatar(name: string) {
   // ...
 }
+
+# Props vs  parameters
 
 // Usage: Avatar("John Doe")
 
@@ -31,7 +34,7 @@ function Avatar({ name }: { name: string }) {
 // Usage: <Avatar name="John Doe" />
 
 ### how to add thin lines after the border
-    <div className='bg-slate-200 h-1 w-full'></div>
+    <div className='border-slate-200 h-1 w-full'></div>
 
 
 ### how to use merged classe in twailwind css 
@@ -45,7 +48,8 @@ clx let's you use the 2 or more classes and manipulate them dynamically.
 updating the schema it means migrating so the command is 
 npx prisma migrate dev --name "schema info for "
 
-### while using vite define the allias in the vite.config not in ts.config
+### while using vite define the allias vite.config and in ts.config
+in ts.config for type checking and in vite for defining 
   xport default defineConfig({
   plugins: [reactRefresh()],
   resolve: {
@@ -59,6 +63,11 @@ npx prisma migrate dev --name "schema info for "
   }
 })
 
+# ts.config
+
+"paths": {
+  "@components/*": ["src/components/*"]
+}
 
 # how to serve the file from the folder
 
@@ -80,4 +89,8 @@ Find the version field.
 Increment the version number. For example, if the current version is 1.0.1, you can change it to 1.0.2.
 Here's how you can do it using the npm version command:
 
-This command will increment the patch version (the third number) by one. If you want to increment the minor version (the second number), you can use npm version minor. If you want to increment the major version (the first number), you can use npm version major.
+This command will increment the patch version (the third number) by one. If you want to increment the minor version (the second number), you can 
+use 
+## npm version minor. 
+If you want to increment the major version (the first number), you can use 
+## npm version major.
