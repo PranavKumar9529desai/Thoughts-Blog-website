@@ -53,7 +53,7 @@ const CenterTextComponet = () => {
 
   return (
     <>
-      <div className="w-full h-[300px] ml-14 flex justify-center flex-col lg:items-start items-center ">
+      <div className="w-full h-[300px] lg:ml-14 flex justify-center flex-col lg:items-start items-center ">
         <div className="animate-rotate-x lg:text-9xl font-md font-dmserif text-6xl text-center">
           Stay curious.
         </div>
