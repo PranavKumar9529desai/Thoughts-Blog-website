@@ -52,12 +52,12 @@ export function AvatarDropDown({ size }: { size: "small" | "big" }) {
         console.log("div clicked");
         setIsOpen(!isOpen);
       }}
-      className="relative "
+      className="relative"
     >
       {" "}
       <button
         id="dropdownHoverButton"
-        className={`z-100 inline-flex items-center justify-center font-anton ${
+        className={`inline-flex items-center justify-center font-anton ${
           size === "small" ? "w-10 h-10" : "w-14 h-14"
         }   bg-slate-100 rounded-full dark:bg-gray-600`}
       >
@@ -66,10 +66,10 @@ export function AvatarDropDown({ size }: { size: "small" | "big" }) {
       {isOpen && (
         <div
           id="dropdownHover"
-          className="absolute z-100 right-[-30px] rounded-lg  bg-slate-600 dark:bg-gray-700 top-full  text-center border font-mono mt-2 "
+          className="absolute right-[-30px] rounded-lg  bg-slate-600 dark:bg-gray-700 top-full  text-center border font-mono mt-2 "
         >
           <div
-            className="z-100 px-4 py-3 w-full border hover:text-white"
+            className="px-4 py-3 w-full border hover:text-white"
             onClick={() => HandleLogout()}
           >
             Logout

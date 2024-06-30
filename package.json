@@ -1,0 +1,15 @@
+{
+  "name": "mediumblog",
+  "version": "1.0.0",
+  "description": "This is a full-stack application built with React, TypeScript, and Vite on the frontend, and Node.js on the backend. The application uses Recoil for state management and Prisma as the ORM for PostgreSQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd backend && npm run dev\"  \"cd frontend && npm run dev\"  "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

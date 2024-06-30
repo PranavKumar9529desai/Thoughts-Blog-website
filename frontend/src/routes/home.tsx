@@ -9,16 +9,17 @@ import medium from "@assets/medium.png";
 export const Home = () => {
   return (
     <>
-      <div className="h-screen flex flex-col bg-slate-200 overflow-hidden">
+      <div className="h-screen flex flex-col bg-slate-200 ">
         <div className="">
           <AppBar />
         </div>
-        <div className="grid grid-cols-12   lg:ml-[70px]  h-full w-full">
-          <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        <div className="grid grid-cols-12 h-full w-full">
+        <div className="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
           <div className="flex items-center col-span-12 lg:col-span-8 justify-center ">
             <CenterTextComponet />
           </div>
-          <div className="hidden lg:flex col-span-4 justify-end items-end relative lg:h-full"></div>
+          <div className="hidden lg:flex col-span-4 justify-end items-end relative lg:h-full">
+          </div>
         </div>
         {/* bottom component */}
         <div className="justify-self-end mt-auto ">
@@ -31,7 +32,7 @@ export const Home = () => {
 
 const AppBar = () => {
   return (
-    <div className="  bg-slate-200 w-full flex justify-between items-center h-[5rem] border-b border-slate-900 ">
+    <div className=" realtive bg-slate-200 w-full flex justify-between items-center h-[5rem] border-b border-slate-900 ">
       <div className="lg:ml-[70px] ml-5 text-3xl font-extrabold  font-montserrat flex ">
         <img
           alt="Medium logo"
@@ -40,7 +41,7 @@ const AppBar = () => {
         ></img>
         <Link to="/">Medium</Link>
       </div>
-      <div className="mr-[30px] shadow-md shadow-slate-800 rounded-full hover:shadow-2xl hover:-translate-y-1  transition-all duration-300 ">
+      <div className="z-50 absolute right-8 shadow-md shadow-slate-800 rounded-full">
         <AvatarDropDown size="small" />
       </div>
     </div>
@@ -52,12 +53,13 @@ const CenterTextComponet = () => {
 
   return (
     <>
-      <div className="w-full h-[300px] flex justify-center flex-col lg:items-start items-center ">
+      <div className="w-full h-[300px] ml-14 flex justify-center flex-col lg:items-start items-center ">
         <div className="animate-rotate-x lg:text-9xl font-md font-dmserif text-6xl text-center">
           Stay curious.
         </div>
         <div className="m-2 *:font-sm font-mono lg:font-mono py-1 my-8 text-xl text-center  lg:text-2xl lg:text-start">
-          Discover stories, thinking, and expertise from writers on any topic.
+          Discover stories, thinking, and expertise from  writers on
+          any topic.
         </div>
 
         <button

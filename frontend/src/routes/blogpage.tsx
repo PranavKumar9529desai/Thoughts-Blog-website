@@ -15,9 +15,7 @@ export const BlogPage = () => {
     <>
       {isLoading ? (
         <>
-          <div className="">
-            <Appbar />
-          </div>
+          ne
           {/* Placeholder for the Appbar */}
           <div style={{ height: "64px" }}></div>
           <div className="flex justify-center items-center h-screen ">
