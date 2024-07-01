@@ -1,7 +1,6 @@
 import { Avatar } from "./shadcn/ui/avatar";
 import { blog } from "@hooks/FetchBlogs";
-import { UserAtom } from "@state/UserAtom";
-import { useRecoilValue } from "recoil";
+
 
 // TOOD make it rePonsive
 export const SingleBlog = ({ blog }: { blog: blog }) => {
@@ -41,8 +40,6 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
 };
 
 const AuthorCard = ({ authorName , authorDescription  }: { authorName: string , authorDescription : string  }) => {
-  const UserInfo = useRecoilValue(UserAtom);
-  console.log(UserInfo);
   return (
     <>
       <div className="max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
