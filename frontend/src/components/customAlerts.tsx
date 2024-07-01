@@ -2,7 +2,13 @@ import Swal, { SweetAlertIcon } from "sweetalert2";
 import { useRecoilCallback } from "recoil";
 import { User, UserAtom } from "@state/UserAtom";
 import { NavigateFunction } from "react-router-dom";
-// fix this 
+// fix this
+
+function handleDescriptionSubmit() {
+  const setUser = useRecoilCallback(({ set }) => (newUser: User) => {
+    set(UserAtom, newUser);
+  });
+}
 
 const Toast = Swal.mixin({
   toast: true,
@@ -23,7 +29,7 @@ export const coustomAlert = (icon: SweetAlertIcon, message: string) => {
   });
 };
 
-export const coustomLogoutAlert = ( navigate : NavigateFunction) => {
+export const coustomLogoutAlert = (navigate: NavigateFunction) => {
   Swal.fire({
     title: "Are you sure?",
     text: "Do you really want to logout!",
@@ -43,17 +49,12 @@ export const coustomLogoutAlert = ( navigate : NavigateFunction) => {
         localStorage.removeItem("jwt");
         navigate("/signin");
         // window.location.href = "/signin";
-        
       });
     }
   });
 };
 
 export const DescriptionModal = async () => {
-  const setUser = useRecoilCallback(({ set }) => (newUser: User) => {
-    set(UserAtom, newUser);
-  });
-
   const result = await Swal.fire({
     input: "textarea",
     title: "Share your interests, skills, or any fun facts here...",
@@ -64,8 +65,7 @@ export const DescriptionModal = async () => {
     showCancelButton: true,
   });
 
-  if (result.isConfirmed) {
-    const userDescription = result.value;
-    setUser({ name: "", description: userDescription });
-  }
+  return (
+    <button onClick={handleDescriptionSubmit}>Edit Description</button>
+  );
 };

@@ -57,7 +57,7 @@ const AuthorCard = ({ authorName }: { authorName: string }) => {
                 : "A"}
             </div>
             <div className="text-slate-400 font-sm mt-1">
-              {authorName} "is the best developer is have ever meet"
+              {/* { userInfo } */}
             </div>
           </div>
         </div>
