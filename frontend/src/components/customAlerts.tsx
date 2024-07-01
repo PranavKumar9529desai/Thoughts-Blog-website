@@ -2,12 +2,20 @@ import Swal, { SweetAlertIcon } from "sweetalert2";
 import { useRecoilCallback } from "recoil";
 import { User, UserAtom } from "@state/UserAtom";
 import { NavigateFunction } from "react-router-dom";
+import axios from "axios";
 // fix this
 
-function handleDescriptionSubmit() {
-  const setUser = useRecoilCallback(({ set }) => (newUser: User) => {
-    set(UserAtom, newUser);
-  });
+async function handleDescriptionSubmit(value: string) {
+  const response = await axios.post(
+    `${import.meta.env.VITE_BACKEND_URL}/api/v1/blog/author/authorinfo`,
+    JSON.stringify(value),
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    }
+  );
+  console.log(response);
 }
 
 const Toast = Swal.mixin({
@@ -65,7 +73,7 @@ export const DescriptionModal = async () => {
     showCancelButton: true,
   });
 
-  return (
-    <button onClick={handleDescriptionSubmit}>Edit Description</button>
-  );
+  if (result.isConfirmed) {
+    await handleDescriptionSubmit(result.value);
+  }
 };

@@ -34,9 +34,9 @@ blogRouter.post("/createblog", async (c) => {
 
   if (!result.success) {
     const result = createPostInput.safeParse(body);
-    console.log("this is resultc var",result);
+    console.log("this is resultc var", result);
     const erroMessage = result.error.errors.message;
-    console.log("erros are ",result._error);
+    console.log("erros are ", result._error);
     console.log(erroMessage);
     c.status(500);
     return c.json({
@@ -180,7 +180,7 @@ blogRouter.get("/bulk", async (c) => {
         id: true,
         title: true,
         content: true,
-        createdAt : true,
+        createdAt: true,
         author: { select: { name: true } },
       },
     });
@@ -217,9 +217,9 @@ blogRouter.get("/:id", async (c) => {
         title: true,
         content: true,
         published: true,
-        createdAt : true,
+        createdAt: true,
         author: {
-          select: { name: true, id: true },
+          select: { name: true, id: true , userInfo: true},
         },
       },
     });
@@ -235,39 +235,45 @@ blogRouter.get("/:id", async (c) => {
   }
 });
 
-blogRouter.get("/author/authorinfo", async (c) => {
-  console.log("got hit authorInfo");
+blogRouter.post("/author/authorinfo", async (c) => {
   const userId = c.get("UserId");
+  console.log("got hit authorInfo");
   const prisma = new PrismaClient({
     datasourceUrl: c.env?.DATABASE_URL,
   }).$extends(withAccelerate());
   console.log(userId);
+  const body = await c.req.json();
+  console.log("body from the request is : ",body);
+
   try {
-    const userinfo = await prisma.user.findFirst({
-      where : { id : userId },
-      select : {
-         id :  true ,
-         name  : true ,
-         email : true ,
+    const user = await prisma.user.findFirst({
+      where: { id: userId }
+    });
+    if (!user) {
+      c.status(300);
+      return c.json({
+        msg: "user not found",
+      })
+    }
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data: {
+        userInfo: body
       }
-   });
-   if(!userinfo){
-     c.status(300);
-     return c.json({
-       msg : "user not found",
-     })
-   }
-   console.log("user info is :",userinfo);
-   c.status(200);
-   return c.json({
-      msg :  "success" ,
-      User : userinfo ,
-   })
+    });
+    console.log("user info is :", user);
+    c.status(200);
+    return c.json({
+      msg: "success",
+      User: updatedUser,
+    })
   } catch (error) {
     console.log(error);
     return c.json({
-        msg : "error"
+      msg: "error"
     })
   }
-  
+
 });
+
+

@@ -29,18 +29,18 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
             dangerouslySetInnerHTML={{ __html: blog.content }}
           ></div>
           <div className="mt-10 mb-20 col-span-4 mx-auto block lg:hidden ">
-            <AuthorCard authorName={blog.author.name} />
+            <AuthorCard authorName={blog.author.name} authorDescription={blog.author.userInfo} />
           </div>
         </div>
         <div className="col-span-4 mx-auto hidden lg:block">
-          <AuthorCard authorName={blog.author.name} />
+          <AuthorCard authorName={blog.author.name} authorDescription={blog.author.userInfo}/>
         </div>
       </div>
     </>
   );
 };
 
-const AuthorCard = ({ authorName }: { authorName: string }) => {
+const AuthorCard = ({ authorName , authorDescription  }: { authorName: string , authorDescription : string  }) => {
   const UserInfo = useRecoilValue(UserAtom);
   console.log(UserInfo);
   return (
@@ -57,7 +57,7 @@ const AuthorCard = ({ authorName }: { authorName: string }) => {
                 : "A"}
             </div>
             <div className="text-slate-400 font-sm mt-1">
-              {/* { userInfo } */}
+              { authorDescription ? authorDescription : "No description"}
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ interface blog {
   createdAt : string,
   author: {
     name: string;
+    userInfo: string
   };
   }
   
