@@ -1,6 +1,4 @@
 import Swal, { SweetAlertIcon } from "sweetalert2";
-import { useRecoilCallback } from "recoil";
-import { User, UserAtom } from "@state/UserAtom";
 import { NavigateFunction } from "react-router-dom";
 import axios from "axios";
 // fix this
