@@ -1,25 +1,31 @@
+import { LikeButton } from "./LikeButton";
 import { Avatar } from "./shadcn/ui/avatar";
 import { blog } from "@hooks/FetchBlogs";
 
-
 // TOOD make it rePonsive
 export const SingleBlog = ({ blog }: { blog: blog }) => {
+  console.log("blog id frpm the single blog component",  blog.id);
   const date = new Date(blog.createdAt);
   const createdAt = date.toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "short",
     year: "numeric",
   });
+  // console.log(window.location.href);
   return (
     <>
       <div className="lg:grid lg:grid-cols-12 w-full ">
         <div className="lg:col-span-8 lg:m-1 px-9 pt-4 ">
-          <div className="border-b border-gray-200 shadow-sm">
-            <div className="lg:text-6xl text-3xl font-montserrat font-extrabold ">
-              {blog.title}
-            </div>
+          <div className="lg:text-6xl text-3xl font-montserrat font-extrabold ">
+            {blog.title}
+          </div>
+
+          <div className="flex mt-7 border-y border-gray-150 shadow-sm">
             <div className="text-slate-400  my-3">
               {`Posted on ${createdAt}` || "16 May 2024"}
+            </div>
+            <div className="flex items-center ml-10 my-auto">
+              <LikeButton numofLikes={blog.Likes.length} Size="big"  blogId={blog.id} />
             </div>
           </div>
 
@@ -28,18 +34,30 @@ export const SingleBlog = ({ blog }: { blog: blog }) => {
             dangerouslySetInnerHTML={{ __html: blog.content }}
           ></div>
           <div className="mt-10 mb-20 col-span-4 mx-auto block lg:hidden ">
-            <AuthorCard authorName={blog.author.name} authorDescription={blog.author.userInfo} />
+            <AuthorCard
+              authorName={blog.author.name}
+              authorDescription={blog.author.userInfo}
+            />
           </div>
         </div>
         <div className="col-span-4 mx-auto hidden lg:block">
-          <AuthorCard authorName={blog.author.name} authorDescription={blog.author.userInfo}/>
+          <AuthorCard
+            authorName={blog.author.name}
+            authorDescription={blog.author.userInfo}
+          />
         </div>
       </div>
     </>
   );
 };
 
-const AuthorCard = ({ authorName , authorDescription  }: { authorName: string , authorDescription : string  }) => {
+const AuthorCard = ({
+  authorName,
+  authorDescription,
+}: {
+  authorName: string;
+  authorDescription: string;
+}) => {
   return (
     <>
       <div className="max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -54,7 +72,7 @@ const AuthorCard = ({ authorName , authorDescription  }: { authorName: string , 
                 : "A"}
             </div>
             <div className="text-slate-400 font-sm mt-1">
-              { authorDescription ? authorDescription : "No description"}
+              {authorDescription ? authorDescription : "No description"}
             </div>
           </div>
         </div>

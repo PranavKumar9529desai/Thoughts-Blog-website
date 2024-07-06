@@ -14,6 +14,7 @@ function extractImage(content: any) {
 export function Blogs() {
   const { Loading, Blogs } = useFetchBlogs();
 
+  console.log("from the blogs",Blogs);
   return (
     <>
       <div>
@@ -32,6 +33,7 @@ export function Blogs() {
           // </div>
           <div className="mt-6">
             {Blogs.map((blog, index) => {
+              console.log("from the blogs.map blog id is  " ,blog.id);
               const imageUrl = extractImage(blog.content);
               const contentWithoutImage = blog.content.replace(/<img.*?>/g, "");
               return (
@@ -58,6 +60,8 @@ export function Blogs() {
                             title={blog.title}
                             // passing down the text without image
                             description={contentWithoutImage}
+                            Likes={blog.Likes}
+                            id={blog.id}
                           />
                         </Link>
                       </div>

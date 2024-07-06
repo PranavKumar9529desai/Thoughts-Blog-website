@@ -14,6 +14,12 @@ export interface blog {
     name: string;
     userInfo: string
   };
+  Likes : [
+    {
+       blogsId : string,
+       userId : string
+    }
+  ]
 }
 
 export const useFetchBlogs = () => {

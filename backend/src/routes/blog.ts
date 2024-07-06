@@ -182,6 +182,7 @@ blogRouter.get("/bulk", async (c) => {
         content: true,
         createdAt: true,
         author: { select: { name: true } },
+        Likes : true
       },
     });
     const allblogsCount = allblogs.length;
@@ -219,8 +220,9 @@ blogRouter.get("/:id", async (c) => {
         published: true,
         createdAt: true,
         author: {
-          select: { name: true, id: true , userInfo: true},
+          select: { name: true, id: true, userInfo: true },
         },
+        Likes : true
       },
     });
     console.log(blog);
@@ -243,7 +245,7 @@ blogRouter.post("/author/authorinfo", async (c) => {
   }).$extends(withAccelerate());
   console.log(userId);
   const body = await c.req.json();
-  console.log("body from the request is : ",body);
+  console.log("body from the request is : ", body);
 
   try {
     const user = await prisma.user.findFirst({
@@ -277,3 +279,25 @@ blogRouter.post("/author/authorinfo", async (c) => {
 });
 
 
+blogRouter.post("/addlike/:id", async (c) => {
+  const userId = c.get("UserId");
+  console.log("got hit authorInfo");
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env?.DATABASE_URL,
+  }).$extends(withAccelerate());
+  const blogId = c.req.param("id");
+  console.log(userId, blogId);
+  try {
+    const likes = await prisma.likes.create({
+      data: {
+        blogsId: blogId,
+        userId: userId
+      }
+    })
+    return c.json({"msg": "success" , "likes" : likes})
+    console.log(likes);
+  } catch (error) {
+    console.log(error);
+    return c.json({'error' : error });
+  }
+})

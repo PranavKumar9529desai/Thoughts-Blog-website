@@ -37,7 +37,7 @@ const AppBar = () => {
         <img
           alt="Medium logo"
           src={medium}
-          className="h-10 w-12 mr-3  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+          className="h-10 w-12 mr-3  hover:animate-wiggle "
         ></img>
         <Link to="/">Medium</Link>
       </div>

@@ -10,6 +10,12 @@ interface blog {
     name: string;
     userInfo: string
   };
+  Likes : [
+    {
+       blogsId : string,
+       userId : string
+    }
+  ]
   }
   
   // Define your `atom`

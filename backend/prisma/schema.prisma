@@ -23,6 +23,7 @@ model User  {
   password String
   posts Posts[]
   userInfo String?
+  likesTable Likes[]
 }
 
 model Posts {
@@ -33,4 +34,18 @@ model Posts {
   author    User    @relation(fields: [authorId] ,references:[id])
   authorId  String
   createdAt DateTime @default(now()) 
+  Likes Likes[]
+  
+
+  // one Post can be liked by many users
 }
+
+
+model Likes {
+  blogsId String  
+  userId String 
+  User User @relation(fields: [userId],references: [id])
+  Blog Posts @relation(fields: [blogsId] ,references: [id])
+  @@id([userId , blogsId])
+  // creating a composite key consisting userid and blogid 
+} 
