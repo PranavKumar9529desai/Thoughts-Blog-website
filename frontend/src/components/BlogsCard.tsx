@@ -1,5 +1,6 @@
 import { Avatar } from "./shadcn/ui/avatar";
 import { LikeButton } from "./LikeButton";
+import { Tooltip } from "./Tooltip";
 
 interface BlogsProps {
   AuthorName: string;
@@ -56,6 +57,7 @@ export const BlogsCard = ({
 
             {/* the like button */}
             <div className="w-fit ml-5 flex">
+              < Tooltip text="Like Button"/>
               <LikeButton numofLikes={Likes.length} Size="small" blogId="" />
             </div>
           </div>
