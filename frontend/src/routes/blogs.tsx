@@ -14,7 +14,7 @@ function extractImage(content: any) {
 export function Blogs() {
   const { Loading, Blogs } = useFetchBlogs();
 
-  console.log("from the blogs",Blogs);
+  console.log("from the blogs", Blogs);
   return (
     <>
       <div>
@@ -33,7 +33,7 @@ export function Blogs() {
           // </div>
           <div className="mt-6">
             {Blogs.map((blog, index) => {
-              console.log("from the blogs.map blog id is  " ,blog.id);
+              console.log("from the blogs.map blog id is  ", blog.id);
               const imageUrl = extractImage(blog.content);
               const contentWithoutImage = blog.content.replace(/<img.*?>/g, "");
               return (
@@ -42,8 +42,7 @@ export function Blogs() {
                   className="lg:w-[900px] py-1 border-b border-slate-400"
                 >
                   <div className="flex justify-between rounded-xl overflow-hidden">
-                    <div className="grid grid-cols-12 ">
-                      <div className="col-span-8 ">
+                   
                         <Link to={"/blogs/" + blog.id}>
                           <BlogsCard
                             AuthorName={
@@ -62,18 +61,12 @@ export function Blogs() {
                             description={contentWithoutImage}
                             Likes={blog.Likes}
                             id={blog.id}
+                            imageUrl={imageUrl}
                           />
                         </Link>
                       </div>
-                      <div className="hidden lg:flex col-span-4 w-full h-full  justify-center items-center rounded-xl ">
-                        <img
-                          src={imageUrl}
-                          className=" w-[170px] h-[140px] rounded-lg shadow-lg shadow-slate-600 mx-auto mt-2"
-                        />
-                      </div>
                     </div>
-                  </div>
-                </div>
+                
               );
             })}
           </div>
