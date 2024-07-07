@@ -49,7 +49,7 @@ export const BlogsCard = ({
               <div
                 className="lg:w-[500px] w-full text-md leading-7 my-2 font-anton text-gray-500"
                 dangerouslySetInnerHTML={{
-                  __html: description.slice(0, 100) + ". . . . .",
+                  __html: description.slice(0, 100).trim() + ". . . . .",
                 }}
               />
 
