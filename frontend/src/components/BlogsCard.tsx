@@ -73,7 +73,7 @@ export const BlogsCard = ({
             <div className="  rounded-xl ">
               <img
                 src={imageUrl}
-                className=" lg:w-[170px] lg:h-[140px] w-[130px] h-[100px] rounded-lg shadow-lg shadow-slate-600 lg:mt-10 mt-10"
+                className=" lg:w-[170px] lg:h-[140px] w-[150px] h-[130px] rounded-lg shadow-lg shadow-slate-600 lg:mt-10 mt-14"
               />
             </div>
           </div>
