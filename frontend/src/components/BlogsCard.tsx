@@ -32,7 +32,7 @@ export const BlogsCard = ({
     <>
       <div className="w-full  m-3 flex ">
         <div className="grid grid-cols-10 ">
-          <div className="lg:col-span-8 col-span-6 ">
+          <div className="lg:col-span-8 col-span-7 ">
             <div className="flex items-center ml-3">
               <div className="flex text-s font-anton">
                 <Avatar name={AuthorName} size="small" />
@@ -49,9 +49,9 @@ export const BlogsCard = ({
                 {title}
               </div>
               <div
-                className="lg:w-[500px] w-full text-md leading-7 my-2 font-anton text-gray-500"
+                className="lg:w-[500px] w-full text-md  my-2 font-anton text-gray-500"
                 dangerouslySetInnerHTML={{
-                  __html: description.slice(0, descriptionSlicefactor).trim() + ". . . . .",
+                  __html: description.slice(0, descriptionSlicefactor).trim(),
                 }}
               />
 
@@ -71,11 +71,11 @@ export const BlogsCard = ({
               </div>
             </div>
           </div>
-          <div className="lg:col-span-2 col-span-4 flex w-full">
-            <div className="flex items-start rounded-xl pr-3">
+          <div className="lg:col-span-2 col-span-3 flex w-full">
+            <div className="flex items-start rounded-xl pr-6">
               <img
                 src={imageUrl}
-                className=" lg:w-[170px] lg:h-[140px] w-[130px] h-[90px] rounded-lg shadow-lg shadow-slate-600 lg:mt-10 mt-14 "
+                className=" lg:w-[170px] lg:h-[140px] w-[90px] h-[70px] rounded-lg shadow-lg shadow-slate-600 lg:mt-10 mt-14 "
               />
             </div>
           </div>
