@@ -4,7 +4,6 @@ import { useFetchBlogs } from "@hooks/FetchBlogs";
 import { CustomSkelton } from "@components/loaders/customSkelton";
 import { Link } from "react-router-dom";
 import { Editblog } from "@components/button";
-import { blog } from "@hooks/FetchBlogs";
 
 function extractImage(content: any) {
   const imgRegex = /<img.*?src="(.*?)"/;
