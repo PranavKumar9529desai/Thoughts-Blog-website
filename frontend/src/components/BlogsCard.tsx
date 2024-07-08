@@ -26,6 +26,8 @@ export const BlogsCard = ({
   Likes,
 }: BlogsProps) => {
   console.log("from the blogcard component id is ", id);
+  //  lg screenWidth = 1024
+  const descriptionSlicefactor =  (window.innerWidth < 1024 ? 50 : 100 );
   return (
     <>
       <div className="w-full  m-3 flex ">
@@ -35,7 +37,7 @@ export const BlogsCard = ({
               <div className="flex text-s font-anton">
                 <Avatar name={AuthorName} size="small" />
               </div>
-              <div className="flex ml-2 m-1 text-md w-full">
+              <div className="flex ml-2 m-1 md:text-md text-sm w-full">
                 {AuthorName}
                 {/* dot bwtween the avatra name  */}
                 <div className="flex mx-1">&#x2022;</div>
@@ -43,13 +45,13 @@ export const BlogsCard = ({
               </div>
             </div>
             <div className="flex flex-col w-full px-4">
-              <div className="lg:w-[500px] w-full text-lg lg:text-xl font-extrabold my-2 font-montserrat">
+              <div className="lg:w-[500px] w-full text-md lg:text-xl font-extrabold mt-2 font-montserrat">
                 {title}
               </div>
               <div
                 className="lg:w-[500px] w-full text-md leading-7 my-2 font-anton text-gray-500"
                 dangerouslySetInnerHTML={{
-                  __html: description.slice(0, 100).trim() + ". . . . .",
+                  __html: description.slice(0, descriptionSlicefactor).trim() + ". . . . .",
                 }}
               />
 
@@ -69,11 +71,11 @@ export const BlogsCard = ({
               </div>
             </div>
           </div>
-          <div className="lg:col-span-2 col-span-4">
-            <div className="  rounded-xl ">
+          <div className="lg:col-span-2 col-span-4 flex w-full">
+            <div className="flex items-start rounded-xl pr-3">
               <img
                 src={imageUrl}
-                className=" lg:w-[170px] lg:h-[140px] w-[150px] h-[130px] rounded-lg shadow-lg shadow-slate-600 lg:mt-10 mt-14"
+                className=" lg:w-[170px] lg:h-[140px] w-[130px] h-[90px] rounded-lg shadow-lg shadow-slate-600 lg:mt-10 mt-14 "
               />
             </div>
           </div>
