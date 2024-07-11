@@ -6,7 +6,7 @@ interface SelectTagProps {
   }
   
  export  function SelectTag({
-    SetBlogInput, // This might not be needed anymore if you're directly using handleTagSelection
+ // This might not be needed anymore if you're directly using handleTagSelection
     handleTagSelection,
   }: SelectTagProps) {
     return (
