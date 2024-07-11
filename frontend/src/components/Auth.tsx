@@ -18,8 +18,6 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
   async function SendData(postInputs: SigninInput) {
     try {
       setLoading(true);
-      console.log("function is called");
-      console.log(import.meta.env.VITE_BACKEND_URL);
       const newReq = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/user${
           type == "signup" ? "/signup" : "/signin"

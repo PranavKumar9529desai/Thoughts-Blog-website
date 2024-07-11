@@ -4,6 +4,10 @@ import { blogSelector } from "../state/blogsFamily";
 import { blogsState } from "../components/BlogSelctor";
 import {useSingleBlog} from '../state/blogsFamily'
 
+
+export type Tags = "React" | "Tech" | "Ai" | "Coding";
+
+
 export interface blog {
   id: string;
   title: string;
@@ -19,7 +23,8 @@ export interface blog {
        blogsId : string,
        userId : string
     }
-  ]
+  ];
+  Tags : Tags
 }
 
 export const useFetchBlogs = () => {

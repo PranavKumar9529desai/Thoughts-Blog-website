@@ -35,10 +35,9 @@ model Posts {
   authorId  String
   createdAt DateTime @default(now()) 
   Likes Likes[]
-  
-
-  // one Post can be liked by many users
-}
+  Tags Tags  
+  // one Post can be liked by many user
+  }
 
 
 model Likes {
@@ -49,3 +48,11 @@ model Likes {
   @@id([userId , blogsId])
   // creating a composite key consisting userid and blogid 
 } 
+
+// this are only aviable tags
+enum Tags {
+  React 
+  Ai
+  Tech
+  Coding
+}

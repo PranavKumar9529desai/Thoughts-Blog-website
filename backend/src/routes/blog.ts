@@ -25,9 +25,9 @@ export const blogRouter = new Hono<{
 // post a blog
 blogRouter.post("/createblog", async (c) => {
   const userId = c.get("UserId");
-  console.log("got a post request");
 
   const body = await c.req.json();
+  console.log("got a post request body is ", body);
 
   // create a blog
   const result = createPostInput.safeParse(body);
@@ -55,13 +55,13 @@ blogRouter.post("/createblog", async (c) => {
         content: body.content,
         // author: body.author,
         authorId: userId,
+        Tags: body.Tag,
       },
       include: {
         author: true, // Include author data
       },
     });
 
-    console.log("blog created is :", blog);
     c.status(200);
     return c.json({
       msg: "success",
@@ -182,9 +182,15 @@ blogRouter.get("/bulk", async (c) => {
         content: true,
         createdAt: true,
         author: { select: { name: true } },
-        Likes : true
+        Likes: true,
+        Tags: true
       },
     });
+    // const truncatedBlogs = allblogs.map(blog => ({
+    //   ...blog,
+    //   content: blog.content.split(" ").slice(0, 50).join(" ") + "..."
+    // }));
+
     const allblogsCount = allblogs.length;
     console.log(allblogs);
     c.status(200);
@@ -222,7 +228,7 @@ blogRouter.get("/:id", async (c) => {
         author: {
           select: { name: true, id: true, userInfo: true },
         },
-        Likes : true
+        Likes: true
       },
     });
     console.log(blog);
@@ -294,10 +300,10 @@ blogRouter.post("/addlike/:id", async (c) => {
         userId: userId
       }
     })
-    return c.json({"msg": "success" , "likes" : likes})
+    return c.json({ "msg": "success", "likes": likes })
     console.log(likes);
   } catch (error) {
     console.log(error);
-    return c.json({'error' : error });
+    return c.json({ 'error': error });
   }
 })
