@@ -5,7 +5,7 @@ import { CustomSkelton } from "@components/loaders/customSkelton";
 import { Link } from "react-router-dom";
 import { Editblog } from "@components/button";
 import { TageNavigation } from "@components/TagNavigation";
-import { Tags } from "@components/TagNavigation";
+import { Tags } from "@components/BlogSelctor";
 import { useState } from "react";
 import { blog } from "@hooks/FetchBlogs";
 
@@ -17,7 +17,7 @@ function extractImage(content: any) {
 
 export function Blogs() {
   const { Loading, Blogs } = useFetchBlogs();
-  const [Tag, SetTag] = useState<Tags>("React");
+  const [Tag, SetTag] = useState<Tags>("React" as Tags);
   console.log("from the state", Tag);
 
   // ToDo note that you can create a shallow copy of the Blogs array before sorting it
@@ -51,7 +51,7 @@ export function Blogs() {
           //   <CustomSkelton blogCount={3} />
           <div>
             <div className="flex w-full justify-center">
-              <TageNavigation SetTag={SetTag} />
+              <TageNavigation SetTag={SetTag}  />
             </div>
             <div className="mt-6">
               {/* sort blog according to their likes or tagnnavigation*/}

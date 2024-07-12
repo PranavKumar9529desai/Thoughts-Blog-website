@@ -1,35 +1,32 @@
-import { Loadable, useRecoilState, useRecoilValueLoadable  } from "recoil";
+import { Loadable, useRecoilState, useRecoilValueLoadable } from "recoil";
 import { useEffect, useState } from "react";
 import { blogSelector } from "../state/blogsFamily";
 import { blogsState } from "../components/BlogSelctor";
-import {useSingleBlog} from '../state/blogsFamily'
-
-
-export type Tags = "React" | "Tech" | "Ai" | "Coding";
-
+import { useSingleBlog } from "../state/blogsFamily";
+import { Tags } from "@components/BlogSelctor";
 
 export interface blog {
   id: string;
   title: string;
   content: string;
-  published: false,
-  createdAt : string,
+  published: false;
+  createdAt: string;
   author: {
     name: string;
-    userInfo: string
+    userInfo: string;
   };
-  Likes : [
+  Likes: [
     {
-       blogsId : string,
-       userId : string
+      blogsId: string;
+      userId: string;
     }
   ];
-  Tags : Tags
+  Tags: Tags;
 }
 
 export const useFetchBlogs = () => {
   const blogsLoadable: Loadable<blog[]> = useRecoilValueLoadable(blogSelector);
-  const [Loading , SetLoading ] = useState(false)
+  const [Loading, SetLoading] = useState(false);
   const [Blogs, SetBlogs] = useRecoilState<blog[]>(blogsState);
 
   useEffect(() => {
@@ -38,14 +35,14 @@ export const useFetchBlogs = () => {
       switch (blogsLoadable.state) {
         case "hasValue":
           SetBlogs(blogsLoadable.contents);
-          SetLoading(false)
+          SetLoading(false);
           break;
         case "loading":
-          SetLoading(true)
+          SetLoading(true);
           break;
         case "hasError":
           console.error(blogsLoadable.contents);
-          SetLoading(true)
+          SetLoading(true);
           break;
       }
     } else {
@@ -54,14 +51,13 @@ export const useFetchBlogs = () => {
     }
   }, [blogsLoadable]);
 
-
   return { Loading, Blogs };
 };
 
-
-
 export const useFetchSingleBlog = (id: string) => {
-  const singleBlogLoadable: Loadable<blog> = useRecoilValueLoadable(useSingleBlog(id));
+  const singleBlogLoadable: Loadable<blog> = useRecoilValueLoadable(
+    useSingleBlog(id)
+  );
 
   switch (singleBlogLoadable.state) {
     case "hasValue":
@@ -72,4 +68,3 @@ export const useFetchSingleBlog = (id: string) => {
       throw singleBlogLoadable.contents;
   }
 };
-

@@ -4,34 +4,36 @@ import { useState } from "react";
 import axios from "axios";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { coustomAlert } from "@components/customAlerts";
-import { Tags } from "@components/TagNavigation";
+import { Tags } from "@components/BlogSelctor";
 import { SelectTag } from "@components/SelectTag";
+
 export interface blogInputtype {
   title: string;
   content: string;
   author: string;
-  Tag : Tags
+  Tag: Tags;
 }
 export const CreateBlog = () => {
-  
-
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const [blogInput, setBlogInput] = useState<blogInputtype>({
     content: "",
     title: "", // add this
     author: "", // and this
-    Tag : "Coding"
+    Tag: "Coding",
   });
 
-  const HandleTagSelection = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+  const HandleTagSelection = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ): void => {
     const selectedTag: Tags = event.target.value as Tags; // Cast the string to Tags type
-    setBlogInput((prevInput: blogInputtype) => ({...prevInput, Tag: selectedTag }));
+    setBlogInput((prevInput: blogInputtype) => ({
+      ...prevInput,
+      Tag: selectedTag,
+    }));
   };
 
-  async function createblog( blogInput: blogInputtype ) {
-
-   
+  async function createblog(blogInput: blogInputtype) {
     console.log("blogInput is : ", blogInput);
     try {
       setLoading(true);
@@ -74,7 +76,7 @@ export const CreateBlog = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                createblog( blogInput );
+                createblog(blogInput);
               }}
             >
               {" "}
@@ -96,7 +98,10 @@ export const CreateBlog = () => {
               </div>
               {/* select a option */}
               <div className="mt-6">
-                < SelectTag SetBlogInput={setBlogInput} handleTagSelection={HandleTagSelection}  />
+                <SelectTag
+                  SetBlogInput={setBlogInput}
+                  handleTagSelection={HandleTagSelection}
+                />
               </div>
               <button
                 type="submit"
