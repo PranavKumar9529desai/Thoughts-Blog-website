@@ -10,11 +10,13 @@ interface TagButtonProps {
 function TagButton({ tag, ActiveTag, SetActiveTag }: TagButtonProps) {
   return (
     <button
-      className={` opacity-60 hover:opacity-100 border-b-4 border-transparent  transition ease-in-out duration-300  ${
-        ActiveTag ? "border-black" : ""
+      className={` opacity-80 hover:opacity-100 border-b-2 border-transparent  transition ease-in-out duration-300 font-montserrat 
+         ${
+        ActiveTag ? "border-gray-950" : " "
       }`}
       onClick={() => {
         SetActiveTag(tag);
+        console.log("valuw of active tag is",ActiveTag);
         console.log("from button", tag);
       }}
     >
@@ -29,7 +31,7 @@ export function TageNavigation({
   SetTag: React.Dispatch<React.SetStateAction<Tags>>;
 }) {
   const [ActiveTag, SetActiveTag] = useState<Tags | null>("React");
-
+ 
   const handleClick = (tag: Tags) => {
     SetTag(tag);
     SetActiveTag(tag);
@@ -37,7 +39,7 @@ export function TageNavigation({
 
   return (
     <>
-      <div className="flex lg:w-[600px] w-[250px] h-12 rounded-full bg-slate-100 mt-10 justify-evenly items-center px-2 lg:px-0">
+      <div className="flex lg:w-[600px] w-[300px] h-12 rounded-full bg-slate-100 mt-10 justify-evenly items-center px-2 lg:px-0">
         <TagButton
           tag="React"
           ActiveTag={ActiveTag === "React"}

@@ -24,7 +24,7 @@ export function Blogs() {
   const FilteredBlogs: blog[] = [...Blogs].sort((a, b) => {
     const aHasTag = a.Tags.includes(Tag);
     const bHasTag = b.Tags.includes(Tag);
-  
+
     if (aHasTag && !bHasTag) {
       return -1; // a comes before b
     } else if (!aHasTag && bHasTag) {
@@ -39,7 +39,7 @@ export function Blogs() {
       <div>
         <Appbar />
       </div>
-      <div className="mt-12 flex  items-center flex-col max">
+      <div className="mt-12 lg:flex  lg:items-center lg:flex-col max relative">
         {Loading ? (
           <>
             <div className="lg:mt-10 lg:ml-[800px] lg:flex  flex-col  items-center w-full px-4 mt-10">
@@ -50,8 +50,11 @@ export function Blogs() {
           // <div className="lg:mt-10 lg:ml-[800px] lg:flex  flex-col  items-center w-full px-4 mt-10">
           //   <CustomSkelton blogCount={3} />
           <div>
-            <div className="flex w-full justify-center">
-              <TageNavigation SetTag={SetTag}  />
+            <div className="flex w-full justify-center ">
+              {/* TODO add the Bottom Navigation Component */}
+              {/* <div className="lg:flex fixed inset-x-0 bottom-0">  */}
+              {/* </div> */}
+                <TageNavigation SetTag={SetTag} />
             </div>
             <div className="mt-6">
               {/* sort blog according to their likes or tagnnavigation*/}
