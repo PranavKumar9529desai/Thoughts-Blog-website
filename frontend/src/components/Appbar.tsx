@@ -12,7 +12,7 @@ export function Appbar() {
           src={medium}
           className="h-10 w-110 mr-2  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
         ></img>
-        <Link to="/">VICHAR</Link>
+        <Link to="/blogs">VICHAR</Link>
       </div>
       <div className="z-50 absolute right-10 rounded-full ">
         <AvatarDropDown size="small" />

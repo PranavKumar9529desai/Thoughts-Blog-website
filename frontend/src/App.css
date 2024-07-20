@@ -119,6 +119,7 @@ header:before {
 @media (max-width: 768px) {
   .header-title {
     font-size: 3rem !important;
+    font-weight: 600;
   }
   .down-arrow {
     transform: translateY(-2rem)  scale(.8) !important;
@@ -162,7 +163,7 @@ header:before {
 
 .down-arrow {
   position: absolute;
-  bottom: 3vh;
+  bottom: 5vh;
 
   opacity: 0;
   animation: no-transform 2s 10s ease-in-out forwards,

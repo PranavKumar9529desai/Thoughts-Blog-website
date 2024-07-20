@@ -12,7 +12,7 @@ function TagButton({ tag, ActiveTag, SetActiveTag }: TagButtonProps) {
     <button
       className={` opacity-80 hover:opacity-100 border-b-2 border-transparent  transition ease-in-out duration-300 font-montserrat 
          ${
-        ActiveTag ? "border-gray-950" : " "
+        ActiveTag ? "border-b-4 border-black" : " "
       }`}
       onClick={() => {
         SetActiveTag(tag);
