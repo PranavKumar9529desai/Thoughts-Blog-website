@@ -194,6 +194,7 @@ body {
   transition: background-color 0.2s ease-in-out;
   justify-content: center;
   text-align: center;
+  width: 150px;
   cursor: pointer; /* Not included according to website */
 }
 

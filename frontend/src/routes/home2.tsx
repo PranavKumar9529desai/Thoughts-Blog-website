@@ -30,7 +30,7 @@ export const Home2 = () => {
             type="button"
             className="btn"
           >
-            Start reading
+            Start Reading 
           </button>
         </section>
         <section className="down-arrow">
