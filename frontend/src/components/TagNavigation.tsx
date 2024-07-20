@@ -30,7 +30,7 @@ export function TageNavigation({
 }: {
   SetTag: React.Dispatch<React.SetStateAction<Tags>>;
 }) {
-  const [ActiveTag, SetActiveTag] = useState<Tags | null>("React");
+  const [ActiveTag, SetActiveTag] = useState<Tags>("React");
  
   const handleClick = (tag: Tags) => {
     SetTag(tag);

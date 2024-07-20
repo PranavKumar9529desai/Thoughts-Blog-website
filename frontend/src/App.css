@@ -1,0 +1,233 @@
+header {
+  z-index: 0;
+  background: black;
+  position: relative;
+  overflow: hidden;
+  perspective: 100rem;
+  transform-style: preserve-3d;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+@keyframes no-transform {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes zoom-back {
+  0% {
+    opacity: 0;
+    transform: translateZ(0) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(-4em) scale(1);
+    /* em is used for 3d transforamations */
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoom-title {
+  0% {
+    opacity: 0;
+    transform: translateZ(1em);
+  }
+  100% {
+    opacity: 0.8;
+    transform: none;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+}
+
+header:before {
+  content: "";
+  opacity: 0;
+  animation: zoom-back 12s 0.5s ease-in-out forwards;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
+    url(./assets/background.jpg);
+  z-index: -1;
+  height: 100vh ;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.background-blur {
+  opacity: 0;
+  animation: zoom-back 10s 0.5s ease-in-out forwards,
+    fade-out 10s 0.5s ease-out forwards;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)),
+    url(./assets/background-blurry.jpg), no-repeat;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+
+@media (max-width: 768px) {
+    .header-title {
+      font-size: 3rem !important; 
+      
+      /* Adjusted font size for mobile */
+    }
+  }
+
+.header-title {
+  font-size: 6rem;
+  animation: zoom-title 10s 5s cubic-bezier(0, 0, 0, 1) forwards;
+  opacity: 0;
+  color: white;
+}
+
+.header-title span {
+  opacity: 0;
+  animation: no-transform ease-in 4s forwards;
+  font-family: monsterat;
+  /* margin: 5px; */
+  margin: 0px 10px;
+  
+}
+
+.header-title span:nth-child(1) {
+  animation-delay: 6s;
+}
+.header-title span:nth-child(2) {
+  animation-delay: 8s;
+}
+.header-title span:nth-child(3) {
+  animation-delay: 9s;
+}
+.header-title span:nth-child(4) {
+  animation-delay: 5s;
+}
+.header-title span:nth-child(5) {
+  animation-delay: 7s;
+}
+.header-title span:nth-child(6) {
+  animation-delay: 8s;
+}
+
+.down-arrow {
+  position: absolute;
+  bottom: 3vh;
+  
+  opacity: 0;
+  animation: no-transform 2s 10s ease-in-out forwards,
+    pulse 2s 15s ease-in-out infinite;
+  transform: translateY(-4rem);
+}
+
+.navigate-button{
+    margin-top: 30px;
+    animation: no-transform 2s 12s ease-in-out forwards;
+    opacity: 0;
+    transform: translatey(4rem) scale(.8);
+}
+
+body {
+  margin: 0;
+  /* overflow: hidden; */
+}
+
+
+.btn {
+   
+    line-height: 1.8rem;
+    border-radius: 9.5px;
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    position: relative;
+    background-color: #18181b;
+    color: #f4f4f5;
+    transition: background-color 0.2s ease-in-out;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer; /* Not included according to website */
+  }
+  
+  .btn:hover {
+    background-color: #0c0c0d;
+  }
+  
+  .btn:before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(
+      to right,
+      #f10707f2,
+      rgb(125, 10, 2),
+      rgb(240, 88, 88)
+    );
+    inset: -2px;
+    z-index: -1;
+    border-radius: 12.5px;
+    transition: all 0.2s ease 0s;
+  }
+  
+  .btn:hover:before {
+    box-shadow: rgba(0, 220, 130, 0.5) 0px 0px 10px 0px,
+      rgba(54, 228, 218, 0.5) 0px 0px 20px 0px;
+  }
+  
+  .btn > span {
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+  }
+  

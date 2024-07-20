@@ -1,8 +1,8 @@
 import { Loadable, useRecoilState, useRecoilValueLoadable } from "recoil";
 import { useEffect, useState } from "react";
-import { blogSelector } from "../state/blogsFamily";
-import { blogsState } from "../components/BlogSelctor";
-import { useSingleBlog } from "../state/blogsFamily";
+import { blogSelector } from "@state/blogsFamily";
+import { blogsState } from "@components/BlogSelctor";
+import { SingleBlogSelectorFamily } from "@state/blogsFamily"
 import { Tags } from "@components/BlogSelctor";
 
 export interface blog {
@@ -26,7 +26,7 @@ export interface blog {
 
 export const useFetchBlogs = () => {
   const blogsLoadable: Loadable<blog[]> = useRecoilValueLoadable(blogSelector);
-  const [Loading, SetLoading] = useState(false);
+  const [Loading, SetLoading] = useState<boolean>(false);
   const [Blogs, SetBlogs] = useRecoilState<blog[]>(blogsState);
 
   useEffect(() => {
@@ -54,9 +54,10 @@ export const useFetchBlogs = () => {
   return { Loading, Blogs };
 };
 
+// fetches single blog
 export const useFetchSingleBlog = (id: string) => {
   const singleBlogLoadable: Loadable<blog> = useRecoilValueLoadable(
-    useSingleBlog(id)
+    SingleBlogSelectorFamily(id)
   );
 
   switch (singleBlogLoadable.state) {

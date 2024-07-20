@@ -42,7 +42,7 @@ export function Blogs() {
       <div className="mt-12 lg:flex  lg:items-center lg:flex-col max relative">
         {Loading ? (
           <>
-            <div className="lg:mt-10 lg:ml-[800px] lg:flex  flex-col  items-center w-full px-4 mt-10">
+            <div className="lg:ml-[800px] flex  flex-col  items-center w-full px-4 lg:mt-10 mt-20">
               <CustomSkelton blogCount={3} />
             </div>
           </>

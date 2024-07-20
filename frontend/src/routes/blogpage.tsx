@@ -11,6 +11,7 @@ export const BlogPage = () => {
     return <div>No ID provided</div>;
   }
   const { blog, isLoading } = useFetchSingleBlog(id);
+  console.log("checking what usesingleBlog returns the blog state" , isLoading);
   return (
     <>
       {isLoading ? (
