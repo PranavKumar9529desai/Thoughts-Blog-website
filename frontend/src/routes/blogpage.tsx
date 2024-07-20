@@ -17,7 +17,9 @@ export const BlogPage = () => {
       {isLoading ? (
         <>
           {/* Placeholder for the Appbar */}
-          <div style={{ height: "64px" }}></div>
+          <div style={{ height: "64px" }}>
+            <Appbar />
+          </div>
           <div className="flex justify-center items-center h-screen ">
             <ScaleLoader color="#36d7b7" height={50} width={5} />
           </div>
