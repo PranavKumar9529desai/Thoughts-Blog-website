@@ -1,105 +1,70 @@
 import { Appbar } from "@components/Appbar";
-import { BlogsCard } from "@components/BlogsCard";
-import { useFetchBlogs } from "@hooks/FetchBlogs";
 import { CustomSkelton } from "@components/loaders/customSkelton";
-import { Link } from "react-router-dom";
 import { Editblog } from "@components/button";
-import { TageNavigation } from "@components/TagNavigation";
+import { useFetchBlogs } from "@hooks/FetchBlogs";
+import { AllBlogs } from "@components/AllblogsComponent";
+import { useRecoilValue } from "recoil";
+import { TagsAtom } from "@state/atoms/TagsAtom";
 import { Tags } from "@components/BlogSelctor";
-import { useState } from "react";
-import { blog } from "@hooks/FetchBlogs";
-
-function extractImage(content: any) {
-  const imgRegex = /<img.*?src="(.*?)"/;
-  const match = content.match(imgRegex);
-  return match ? match[1] : null;
-}
 
 export function Blogs() {
   const { Loading, Blogs } = useFetchBlogs();
-  const [Tag, SetTag] = useState<Tags>("React" as Tags);
-  console.log("from the state", Tag);
-
-  // ToDo note that you can create a shallow copy of the Blogs array before sorting it
-  const FilteredBlogs: blog[] = [...Blogs].sort((a, b) => {
-    const aHasTag = a.Tags.includes(Tag);
-    const bHasTag = b.Tags.includes(Tag);
-
-    if (aHasTag && !bHasTag) {
-      return -1; // a comes before b
-    } else if (!aHasTag && bHasTag) {
-      return 1; // b comes before a
-    } else {
-      return 0; // no change in order
-    }
-  });
-
+  const alltags: any = useRecoilValue<Tags>(TagsAtom);
+  const Tags: string[] = [];
+  let key:string;
+  for (key in alltags) {
+    console.log("key is ", key);
+    Tags.push(key);
+  }
+  console.log("value of tags is ", Tags);
+  console.log("what does the blogs have", Blogs);
   return (
     <>
       <div>
         <Appbar />
       </div>
-      <div className="mt-12 lg:flex  lg:items-center lg:flex-col max relative">
-        {Loading ? (
-          <>
-            <div className="lg:ml-[800px] flex  flex-col  items-center w-full px-4 lg:mt-10 mt-20">
-              <CustomSkelton blogCount={3} />
-            </div>
-          </>
-        ) : (
-          // <div className="lg:mt-10 lg:ml-[800px] lg:flex  flex-col  items-center w-full px-4 mt-10">
-          //   <CustomSkelton blogCount={3} />
-          <div>
-            <div className="flex w-full justify-center ">
-              {/* TODO add the Bottom Navigation Component */}
-              {/* <div className="lg:flex fixed inset-x-0 bottom-0">  */}
-              {/* </div> */}
-                <TageNavigation SetTag={SetTag} />
-            </div>
-            <div className="mt-6">
-              {/* sort blog according to their likes or tagnnavigation*/}
-              {/* {Blogs.sort((a, b) => b.Likes.length - a.Likes.length) */}
-              {FilteredBlogs.map((blog, index) => {
-                const imageUrl = extractImage(blog.content);
-                const contentWithoutImage = blog.content.replace(
-                  /<img.*?>/g,
-                  ""
-                );
-                return (
-                  <div
-                    key={index}
-                    className="lg:w-[900px] py-1 border-b border-slate-400"
-                  >
-                    <div className="flex justify-between rounded-xl overflow-hidden">
-                      <Link to={"/blogs/" + blog.id}>
-                        <BlogsCard
-                          AuthorName={
-                            blog.author.name ? blog.author.name : "Anonymous"
-                          }
-                          // date with specific format
-                          publishedDate={new Date(
-                            blog.createdAt
-                          ).toLocaleDateString("en-GB", {
-                            day: "2-digit",
-                            month: "short",
-                            year: "numeric",
-                          })}
-                          title={blog.title}
-                          // passing down the text without image
-                          description={contentWithoutImage}
-                          Likes={blog.Likes}
-                          id={blog.id}
-                          imageUrl={imageUrl}
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
+      <div className="lg:grid grid-cols-12">
+        <div className="col-span-8 ">
+          <div className="mt-12 lg:flex  lg:items-center lg:flex-col max relative">
+            {Loading ? (
+              <div className="flex flex-col w-full px-4 lg:mt-10 lg:justify-center mt-24 lg:ml-64">
+                <CustomSkelton blogCount={3} />
+              </div>
+            ) : (
+              // <div className="flex lg:mt-10 flex-col w-full px-4 mt-10 ml-[300px]">
+              //   <CustomSkelton blogCount={3} />
+              // </div>
+              <div className="">
+                <AllBlogs Blogs={Blogs} />
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="col-span-4 lg:mt-24 h-screen border-l-2 border-gray-100">
+          <div className="flex">
+            <div className="flex justify-start w-full ml-5 mt-5">
+              <h1 className="text-md font-semibold">Recommended Topics </h1>
             </div>
           </div>
-        )}
+
+          <div className="flex flex-wrap gap-3 px-4 mt-5 ">
+            {Tags.map((tag: string) => {
+              return (
+                <div className="w-fit bg-gray-200 px-5 py-2 rounded-2xl">
+                  {tag}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex w-fit mt-5 ml-5">
+            <button className="text-md text-blue-700 font-montserrat ">
+              see more options
+            </button>
+          </div>
+        </div>
       </div>
+
       <div className=" top-[520px] right-[90px] lg:top-[600px] lg:right-[100px] rounded-full fixed ">
         <Editblog />
       </div>

@@ -2,19 +2,27 @@ import axios, { AxiosResponse } from "axios";
 import { selector, selectorFamily } from "recoil";
 import { blog } from "@hooks/FetchBlogs";
 import { RecoilValueReadOnly } from "recoil";
+import { Tags } from "@components/BlogSelctor";
 
 interface AllBlogs {
   msg: string;
   "number of blogs": string;
   blogs: blog[];
+  tags : Tags
 }
 
 interface SingleBlog {
    "msg" : string ,
    "blog" : blog
 }
+
+export interface BlogsDataType { 
+   blogs : blog[] ,
+   tags :  Tags
+}
+
 // selector to fetch all the blogs
-export const blogSelector:RecoilValueReadOnly<blog[]> = selector({
+export const blogSelector:RecoilValueReadOnly<BlogsDataType> = selector({
   key: "blogsFamily",
   get: async () => {
     const response: AxiosResponse<AllBlogs> = await axios.get(
@@ -25,8 +33,13 @@ export const blogSelector:RecoilValueReadOnly<blog[]> = selector({
         },
       }
     );
-    console.log(response.data.blogs);
-    return response.data.blogs;
+    const TagsArray : Tags = response.data.tags;
+
+    return {
+      blogs : response.data.blogs , 
+      tags : TagsArray
+    };
+
   },
 });
 

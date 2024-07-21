@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export type Tags = "React" | "Tech" | "Ai" | "Coding";
+export type Tags = "React" | "Ai" | 'Coding' | 'Tech';
 
 
 interface blog {

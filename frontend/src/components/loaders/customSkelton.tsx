@@ -8,7 +8,7 @@ export const CustomSkelton = ({ blogCount }: { blogCount: number }) => {
           className="w-full sm:w-[720 px]  animate-pulse order-1 "
         >
           <div>
-            <div className="flex ">
+            <div className="flex">
               <div className="flex text-sm sm:text-s">
                 <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-slate-300 rounded-full dark:bg-gray-600">
                   <span className="font-sm text-slate-600 dark:text-gray-300"></span>

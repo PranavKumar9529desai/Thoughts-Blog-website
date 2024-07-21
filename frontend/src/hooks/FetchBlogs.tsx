@@ -1,9 +1,10 @@
 import { Loadable, useRecoilState, useRecoilValueLoadable } from "recoil";
 import { useEffect, useState } from "react";
-import { blogSelector } from "@state/blogsFamily";
+import { blogSelector , SingleBlogSelectorFamily } from "@state/Selectors/blogsFamily";
 import { blogsState } from "@components/BlogSelctor";
-import { SingleBlogSelectorFamily } from "@state/blogsFamily"
 import { Tags } from "@components/BlogSelctor";
+import { BlogsDataType } from "@state/Selectors/blogsFamily";
+import { TagsAtom } from "@state/atoms/TagsAtom";
 
 export interface blog {
   id: string;
@@ -24,17 +25,21 @@ export interface blog {
   Tags: Tags;
 }
 
+
 export const useFetchBlogs = () => {
-  const blogsLoadable: Loadable<blog[]> = useRecoilValueLoadable(blogSelector);
+  const blogsLoadable: Loadable<BlogsDataType> = useRecoilValueLoadable(blogSelector);
   const [Loading, SetLoading] = useState<boolean>(false);
   const [Blogs, SetBlogs] = useRecoilState<blog[]>(blogsState);
+  const [ Tags , SetTags] = useRecoilState<Tags>(TagsAtom);
 
   useEffect(() => {
     if (Blogs.length === 0) {
       // Only fetch blogs if Blogs is empty
       switch (blogsLoadable.state) {
         case "hasValue":
-          SetBlogs(blogsLoadable.contents);
+          SetBlogs(blogsLoadable.contents.blogs);
+          SetTags(blogsLoadable.contents.tags);
+          console.log(Tags);
           SetLoading(false);
           break;
         case "loading":

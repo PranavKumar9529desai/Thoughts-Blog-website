@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client/edge";
+import { PrismaClient, Tags } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { Hono } from "hono";
 import { sign } from "hono/jwt";
@@ -149,13 +149,17 @@ blogRouter.delete("/", async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env?.DATABASE_URL,
   }).$extends(withAccelerate());
+  console.log("del re is send ");
   try {
     const data = c.get("UserId");
     const body = await c.req.json();
     const blogTobeDeletedId = body.blogId;
     const blogTobeDeleted = await prisma.posts.delete({
-      where: { id: blogTobeDeletedId },
-    });
+       where : { id : blogTobeDeletedId}
+    })
+    console.log("the blogid is ",blogTobeDeletedId);
+    console.log("this blog is needed to be delted",blogTobeDeleted);
+    console.log(blogTobeDeletedId);
     c.status(200);
     return c.json({
       msg: "Successs",
@@ -163,6 +167,7 @@ blogRouter.delete("/", async (c) => {
     });
   } catch (error) {
     c.status(500);
+    console.log(error);
     return c.json({
       msg: "blog doesn't exist",
     });
@@ -198,6 +203,7 @@ blogRouter.get("/bulk", async (c) => {
       msg: "success",
       "number of blogs ": allblogsCount,
       blogs: allblogs,
+      tags : Tags,
     });
   } catch (error) {
     c.status(500);

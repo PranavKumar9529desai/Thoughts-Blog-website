@@ -66,16 +66,16 @@ export function AvatarDropDown({ size }: { size: "small" | "big" }) {
       {isOpen && (
         <div
           id="dropdownHover"
-          className="absolute right-[-30px] rounded-lg  bg-slate-600 dark:bg-gray-700 top-full  text-center border font-mono mt-2 "
+          className="absolute right-[-35px] rounded-lg   bg-gray-200 dark:bg-gray-700 top-full  text-center border-2 font-mono mt-3 border-white"
         >
           <div
-            className="px-4 py-3 w-full border hover:text-white"
+            className="px-4 py-3 w-full border-2 border-white hover:text-blue-600 transition-all"
             onClick={() => HandleLogout()}
           >
             Logout
           </div>
           <div
-            className="px-4 py-3 w-full border hover:text-white"
+            className="px-4 py-3 w-full border-2 border-white hover:text-blue-600 transition-all "
             onClick={() => HandleDescription()}
           >
             Description
