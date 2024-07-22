@@ -6,8 +6,8 @@ export const SuggestFollowers = () => {
   const { hasError, allAuthors, isLoading } = FetchAllauthors();
   console.log(hasError, isLoading);
 
-  if (isLoading) {
-    return <div>Loading......</div>;
+  if (isLoading || hasError ) {
+    return <div>Loading....</div>;
   }
   return (
     <div>

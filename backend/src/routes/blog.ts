@@ -258,7 +258,7 @@ blogRouter.get("/authors/allauthorsinfo", async (c) => {
     datasourceUrl: c.env?.DATABASE_URL,
   }).$extends(withAccelerate());
   console.log("user id is this", userId);
-
+  
   try {
     const allUserInfo = await prisma.user.findMany({
       where: { userInfo: { not: null } },

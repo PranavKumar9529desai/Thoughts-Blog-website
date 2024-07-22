@@ -17,6 +17,9 @@ export const Home2 = () => {
             <span>R</span>
           </h1>
         </section>
+        <div className="sub-header-text">
+          <h2>Discover the books, podcasts, and videos that changed lives</h2>
+        </div>
         <section className="navigate-button">
           <button
             onClick={() => {
@@ -30,7 +33,7 @@ export const Home2 = () => {
             type="button"
             className="btn"
           >
-            Start Reading 
+            Start Reading
           </button>
         </section>
         <section className="down-arrow">

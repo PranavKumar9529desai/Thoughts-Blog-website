@@ -96,7 +96,7 @@ header:before {
   right: 0;
   left: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
 }
 
 .background-blur {
@@ -122,7 +122,7 @@ header:before {
     font-weight: 600;
   }
   .down-arrow {
-    transform: translateY(-2rem)  scale(.8) !important;
+    transform: translateY(-2rem) scale(0.8) !important;
   }
   /* Adjusted font size for mobile */
 }
@@ -173,7 +173,7 @@ header:before {
 
 .navigate-button {
   margin-top: 30px;
-  animation: no-transform 2s 12s ease-in-out forwards;
+  animation: no-transform 2s 14s cubic-bezier(.09,1.21,.33,.93) forwards;
   opacity: 0;
   transform: translatey(4rem) scale(0.8);
 }
@@ -182,7 +182,19 @@ body {
   margin: 0;
   /* overflow: hidden; */
 }
-
+.sub-header-text h2 {
+  opacity: 0;
+  font-size: xx-large;
+  font-weight: 900;
+  background: linear-gradient(to right, #EE3194,#A171F5);
+  /* background: linear-gradient(to right,red, blue); */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: serif;
+  animation: no-transform 2s 12s cubic-bezier(.09,1.21,.33,.93) forwards;
+  transform: translatey(5rem) scale(0.8);
+}
 .btn {
   line-height: 1.8rem;
   border-radius: 9.5px;
