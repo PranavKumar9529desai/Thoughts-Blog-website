@@ -1,14 +1,32 @@
 import axios, { AxiosResponse } from "axios";
 import { selector, selectorFamily } from "recoil";
-import { blog } from "@hooks/FetchBlogs";
 import { RecoilValueReadOnly } from "recoil";
 import { Tags } from "@components/BlogSelctor";
 
-interface AllBlogs {
+export interface blog {
+  id: string;
+  title: string;
+  content: string;
+  published: false;
+  createdAt: string;
+  author: {
+    name: string;
+    userInfo: string;
+  };
+  Likes: [
+    {
+      blogsId: string;
+      userId: string;
+    }
+  ];
+  Tags: Tags;
+}
+
+interface BackendData {
   msg: string;
   "number of blogs": string;
   blogs: blog[];
-  tags : Tags
+  tags : Tags,
 }
 
 interface SingleBlog {
@@ -18,14 +36,14 @@ interface SingleBlog {
 
 export interface BlogsDataType { 
    blogs : blog[] ,
-   tags :  Tags
+   tags :  Tags,
 }
 
 // selector to fetch all the blogs
 export const blogSelector:RecoilValueReadOnly<BlogsDataType> = selector({
   key: "blogsFamily",
   get: async () => {
-    const response: AxiosResponse<AllBlogs> = await axios.get(
+    const response: AxiosResponse<BackendData> = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}/api/v1/blog/bulk`,
       {
         headers: {
@@ -34,10 +52,10 @@ export const blogSelector:RecoilValueReadOnly<BlogsDataType> = selector({
       }
     );
     const TagsArray : Tags = response.data.tags;
-
+ 
     return {
       blogs : response.data.blogs , 
-      tags : TagsArray
+      tags : TagsArray,
     };
 
   },

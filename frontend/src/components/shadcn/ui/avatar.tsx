@@ -7,7 +7,7 @@ export function Avatar({
   size,
 }: {
   name: string;
-  size: "small" | "big";
+  size: "small" | "big" | "extra-small";
 }) {
   const initials =
     name == null
@@ -23,7 +23,7 @@ export function Avatar({
       <div>
         <div
           className={`relative inline-flex items-center justify-center font-anton ${
-            size === "small" ? "w-10 h-10" : "w-14 h-14"
+            size === "small" ? "w-10 h-10" : "w-8 h-8"
           }  overflow-hidden bg-slate-100 rounded-full dark:bg-gray-600`}
         >
           <span

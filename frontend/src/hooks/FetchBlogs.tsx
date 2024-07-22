@@ -1,36 +1,21 @@
 import { Loadable, useRecoilState, useRecoilValueLoadable } from "recoil";
 import { useEffect, useState } from "react";
-import { blogSelector , SingleBlogSelectorFamily } from "@state/Selectors/blogsFamily";
+import {
+  blogSelector,
+  SingleBlogSelectorFamily,
+} from "@state/Selectors/blogsFamily";
 import { blogsState } from "@components/BlogSelctor";
 import { Tags } from "@components/BlogSelctor";
 import { BlogsDataType } from "@state/Selectors/blogsFamily";
 import { TagsAtom } from "@state/atoms/TagsAtom";
-
-export interface blog {
-  id: string;
-  title: string;
-  content: string;
-  published: false;
-  createdAt: string;
-  author: {
-    name: string;
-    userInfo: string;
-  };
-  Likes: [
-    {
-      blogsId: string;
-      userId: string;
-    }
-  ];
-  Tags: Tags;
-}
-
+import { blog } from "@state/Selectors/blogsFamily";
 
 export const useFetchBlogs = () => {
-  const blogsLoadable: Loadable<BlogsDataType> = useRecoilValueLoadable(blogSelector);
+  const blogsLoadable: Loadable<BlogsDataType> =
+    useRecoilValueLoadable(blogSelector);
   const [Loading, SetLoading] = useState<boolean>(false);
   const [Blogs, SetBlogs] = useRecoilState<blog[]>(blogsState);
-  const [ Tags , SetTags] = useRecoilState<Tags>(TagsAtom);
+  const [Tags, SetTags] = useRecoilState<Tags>(TagsAtom);
 
   useEffect(() => {
     if (Blogs.length === 0) {

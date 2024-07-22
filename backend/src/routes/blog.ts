@@ -155,10 +155,10 @@ blogRouter.delete("/", async (c) => {
     const body = await c.req.json();
     const blogTobeDeletedId = body.blogId;
     const blogTobeDeleted = await prisma.posts.delete({
-       where : { id : blogTobeDeletedId}
+      where: { id: blogTobeDeletedId }
     })
-    console.log("the blogid is ",blogTobeDeletedId);
-    console.log("this blog is needed to be delted",blogTobeDeleted);
+    console.log("the blogid is ", blogTobeDeletedId);
+    console.log("this blog is needed to be delted", blogTobeDeleted);
     console.log(blogTobeDeletedId);
     c.status(200);
     return c.json({
@@ -186,7 +186,7 @@ blogRouter.get("/bulk", async (c) => {
         title: true,
         content: true,
         createdAt: true,
-        author: { select: { name: true } },
+        author: { select: { name: true, userInfo: true } },
         Likes: true,
         Tags: true
       },
@@ -203,7 +203,7 @@ blogRouter.get("/bulk", async (c) => {
       msg: "success",
       "number of blogs ": allblogsCount,
       blogs: allblogs,
-      tags : Tags,
+      tags: Tags,
     });
   } catch (error) {
     c.status(500);
@@ -248,6 +248,38 @@ blogRouter.get("/:id", async (c) => {
     return c.json({ msg: "blog doesn't exist" });
   }
 });
+
+
+
+blogRouter.get("/authors/allauthorsinfo", async (c) => {
+  const userId = c.get("UserId");
+  console.log("got hit to route all authorInfo");
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env?.DATABASE_URL,
+  }).$extends(withAccelerate());
+  console.log("user id is this", userId);
+
+  try {
+    const allUserInfo = await prisma.user.findMany({
+      where: { userInfo: { not: null } },
+      select: { name: true, userInfo: true }
+    });
+    console.log(allUserInfo);
+    c.status(200);
+    return c.json({
+      msg: "all users data",
+      allUserInfo: allUserInfo
+    })
+  } catch (error) {
+    console.log(error);
+    c.status(300);
+    return c.json({
+      "error": error
+    })
+  }
+
+})
+
 
 blogRouter.post("/author/authorinfo", async (c) => {
   const userId = c.get("UserId");
