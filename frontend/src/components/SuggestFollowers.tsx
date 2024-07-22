@@ -7,7 +7,7 @@ export const SuggestFollowers = () => {
   console.log(hasError, isLoading);
 
   if (isLoading) {
-    return <div>Loading....</div>;
+    return <div>Loading......</div>;
   }
   return (
     <div>

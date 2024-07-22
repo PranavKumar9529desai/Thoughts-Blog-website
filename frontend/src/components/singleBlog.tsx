@@ -1,6 +1,6 @@
 import { LikeButton } from "./LikeButton";
 import { Avatar } from "./shadcn/ui/avatar";
-import { blog } from "@hooks/FetchBlogs";
+import { blog } from "@state/Selectors/blogsFamily";
 
 // TOOD make it rePonsive
 export const SingleBlog = ({ blog }: { blog: blog }) => {

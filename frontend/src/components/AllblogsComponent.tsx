@@ -1,7 +1,7 @@
 import { TageNavigation } from "./TagNavigation";
 import { useState } from "react";
 import { Tags } from "./BlogSelctor";
-import { blog } from "@hooks/FetchBlogs";
+import { blog } from "@state/Selectors/blogsFamily";
 import { BlogsCard } from "./BlogsCard";
 import { Link } from "react-router-dom";
 
