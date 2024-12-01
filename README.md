@@ -16,7 +16,10 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ## Screenshots
 
+### Blogs Page
 ![Blogs page 1](/frontend/public/1.png)
+
+### Individual Blog
 ![indiviual blog 2](/frontend/public/2.png)
 
 ## Contributing
