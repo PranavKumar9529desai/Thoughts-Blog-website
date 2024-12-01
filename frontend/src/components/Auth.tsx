@@ -70,7 +70,7 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
                 {type === "signup" ? (
                   <LabeledInput
                     label="Username"
-                    placeholder="Pranav"
+                    placeholder="Tanmay"
                     onChange={(e) => {
                       setpostInput((c : SignupInput) => ({
                         ...c,

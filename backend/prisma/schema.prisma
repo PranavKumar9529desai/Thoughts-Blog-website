@@ -11,7 +11,9 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // put the database ul in in prisma in .env and acclerate url in wrangler.toml so the backend appliacation conects with the pooll instaed of database directly 
+  directUrl = env("DIRECT_URL")
+  // put the database url in .env and accelerate url in wrangler.toml so the backend application connects with the pool instead of database directly 
+
 }
 
 

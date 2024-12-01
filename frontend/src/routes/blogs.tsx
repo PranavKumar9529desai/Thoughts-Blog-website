@@ -37,13 +37,13 @@ export function Blogs() {
               // <div className="flex lg:mt-10 flex-col w-full px-4 mt-10 ml-[300px]">
               //   <CustomSkelton blogCount={3} />
               // </div>
-              <div className="">
+              <div className="overflow-y-auto">
                 <AllBlogs Blogs={Blogs} />
               </div>
             )}
           </div>
         </div>
-        <div className="col-span-4 lg:mt-24 h-screen border-l-2 border-gray-100">
+        <div className="col-span-4 lg:mt-24 h-screen border-l-2 border-gray-100 sticky top-20">
           <div>
             <TagsComponent Tags={Tags} />
           </div>

@@ -6,7 +6,7 @@ import { env } from "hono/adapter";
 import {z, ZodError} from 'zod';
 // @ts-ignore
 // TODO remove ts-ignote as you find the types
-import { signinInput , signupInput  } from "../../node_modules/common_for_medium_blog_project/dist/index.js";
+import { signinInput , SignupInput  } from "../../node_modules/common_for_medium_blog_project/dist/index.js";
 // initaialing the userRouter  
 export const userRouter = new Hono<{
     Bindings: {
@@ -38,20 +38,23 @@ userRouter.post('/signup',async(c)=>{
       datasourceUrl: c.env?.DATABASE_URL,
     }).$extends(withAccelerate());
     const body = await  c.req.json();
+    console.log("body",body);
    
     
     try {
-      const result = signupInput.safeParse(body);
-      if (!result.success) 
-        {
-          const errorMessage = await result.error.errors[0].message ;
-          c.status(500);
-          return c.json({
-             success : false ,
-             msg : errorMessage
-            })
-        }
-        console.log(body);
+    //   console.log("signnin",SignupInput);
+    // const result = SignupInput.safaeparse(body);
+    //   console.log("result is ",result);
+    //   if (!result.success) 
+    //     {
+    //       const errorMessage = await result.error.errors[0].message ;
+    //       c.status(500);
+    //       return c.json({
+    //          success : false ,
+    //          msg : errorMessage
+    //         })
+    //     }
+    //     console.log(body);
       // we need to loop over the ZodError because the ZodError are like that given below it is array of objects 
        const user = await prisma.user.create
        ({
@@ -81,6 +84,7 @@ userRouter.post('/signup',async(c)=>{
   
     } catch (error) 
     {
+      console.log("error",error);
         c.status(500);
         return c.json
         ({
